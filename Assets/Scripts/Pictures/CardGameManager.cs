@@ -1,32 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CardGameManager : MonoBehaviour
 {
+    public static bool notTheSameCard = false;
 
-    public Text gameTimeUI, GameOver;
+    public Text gameTimeUI;
+
+    [SerializeField]
+    private GameObject GameOver;
 
     //전체 제한 시간 
-    float setTime = 60;
-    float sec;
-
-    //직전의 카드 번호
-    int lastNum = 0;
-
-    //클릭한 카드 번호
-    int cardNum = 0;
-
-    //터치한 횟수
-    int touchCnt = 0;
-
-    //맞춘 카드 수
-    int hitCnt = 0;
-
-    int[] arrCards = new int[13]; //카드 번호
-    int[] arrHit = new int[13]; //카드 앞뒤 구별
+    [SerializeField]
+    private float setTime = 60f;
+    
+    private float sec = 0f;
 
     [SerializeField]
     public Card[] cards;
@@ -36,38 +28,44 @@ public class CardGameManager : MonoBehaviour
 
     void Start()
     {
-        InitStage();
         MakeStage();
     }
 
 
     void Update()
     {
-        // 남은 시간을 감소시켜준다.
-        //setTime -= Time.deltaTime;
+        //남은 시간을 감소시켜준다.
+        setTime -= Time.deltaTime;
 
-        //// 전체시간이 60초 미만일 때
-        //if (setTime < 60f)
-        //{
-        //    gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
-        //}
+        // 전체시간이 60초 미만일 때
+        if (setTime < 60f)
+        {
+            gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
+        }
 
-        //// 남은 시간이 0보다 작아질 때
-        //if (setTime <= 0)
-        //{
-        //    // UI 텍스트를 0초로 고정시킴.
-        //    gameTimeUI.text = "남은 시간 : 0초";
-        //}
+        // 남은 시간이 0보다 작아질 때
+        if (setTime <= 0)
+        {
+            // UI 텍스트를 0초로 고정시킴.
+            gameTimeUI.text = "남은 시간 : 0초";
+
+            // 게임 오버 로직
+            StartCoroutine(GameOverAfterSeconds(1f));
+        }
     }
 
-    //스테이지 초기화
-    public void InitStage()
+    private IEnumerator GameOverAfterSeconds(float seconds)
     {
-        touchCnt = 0;
-        cardNum = 0;
-        lastNum = 0;
-        hitCnt = 0;
+        // flip을 막고
+        FindObjectsOfType<Card>().ToList().ForEach(card => card.flipLocked = true);
+
+        // seconds만큼 멈추고
+        yield return new WaitForSeconds(seconds);
+
+        // 게임오버 패널을 보여줌
+        GameOver.SetActive(true);
     }
+
 
 
     //스테이지 만들기
@@ -78,6 +76,7 @@ public class CardGameManager : MonoBehaviour
         for(int i = 0; i < cards.Length; ++i)
         {
             cards[i].frontImage.sprite = cardSprites[i];
+            cards[i].cardGameManager = this;
         }
     }
 
@@ -96,58 +95,58 @@ public class CardGameManager : MonoBehaviour
     }
 
 
+    [HideInInspector]
+    private Card cardOnFrontFace = null;
     //정답 확인
-    public void CheckCard()
+    public void CheckIfSameCardFlipped(Card cardFlipped)
     {
-        touchCnt++;
-
-        if (lastNum == 0)
+        // 이전에 뒤집은 카드가 있고
+        if(cardOnFrontFace != null)
         {
-            //현재 카드 보존
-            lastNum = cardNum;
-            return;
+            // 방금 뒤집은 카드와 이전에 뒤집은 카드가 같은 카드라면
+            if(Card.IsSameCards(cardFlipped, cardOnFrontFace))
+            {
+                cardFlipped.flipLocked = true;
+                cardOnFrontFace.flipLocked = true;
+                cardOnFrontFace = null;
+                    
+                notTheSameCard = false;
+            }
+            else
+            {
+                // 같은 카드가 아니니
+                // 둘다 뒤집고
+                // 이전에 뒤집은 카드를 null로 
+                notTheSameCard = true;
+                cardOnFrontFace = null;
+            }
         }
-
-
-        int img1 = (cardNum + 1) / 2; //현재 카드 그림 번호
-        int img2 = (lastNum + 1) / 2; //직전 카드 그림 번호
-
-        //다른 카드일 경우
-        if (img1 != img2)
+        // 이전에 뒤집은 카드가 없다면
+        else
         {
-            lastNum = 0;
-            return;
+            cardOnFrontFace = cardFlipped;
+            notTheSameCard = false;
         }
-
-        //같은 카드일 경우
-        hitCnt += 2;
-
-        //카드가 모두 열리면 스테이지 클리어
-        if (hitCnt == 12)
-        {
-            //SetClear();
-        }
-
     }
 
     //도전 실패
     public void DestroyStage()
     {
-        for (int i = 1; i <= 12; i++) //남은 카드 앞면 표시
-        {
-            if (arrHit[i] == 1)
-            {
-                continue;
-            }
-            GameObject card = GameObject.FindWithTag("CARD" + i);
+        //for (int i = 1; i <= 12; i++) //남은 카드 앞면 표시
+        //{
+        //    if (arrHit[i] == 1)
+        //    {
+        //        continue;
+        //    }
+        //    GameObject card = GameObject.FindWithTag("CARD" + i);
 
-            //yield WaitForSeconds(0.25);
-        }
+        //    //yield WaitForSeconds(0.25);
+        //}
 
-        GameOver.text = "You Failed";
+        //GameOver.text = "You Failed";
 
-        //게임 처음으로 이동
-        SceneManager.LoadScene("GameTitle");
+        ////게임 처음으로 이동
+        //SceneManager.LoadScene("GameTitle");
 
     }
 

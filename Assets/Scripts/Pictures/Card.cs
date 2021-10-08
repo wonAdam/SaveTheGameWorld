@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
-    //이미지 번호
-    int imgNum = 1;
+    public static bool IsAnyCardOpening = false;
 
-    //카드 뒷면 이미지 번호
-    int backNum = 1;
+    [HideInInspector] 
+    public bool flipLocked = false;
 
-    //오픈된 카드의 판별
-    bool cardOpen = false;
-
-    Animator anim;
+    private Animator anim;
 
     [SerializeField /*DEBUG*/]
     public bool isFront = false;
@@ -24,6 +22,9 @@ public class Card : MonoBehaviour
     [SerializeField] 
     public SpriteRenderer frontImage;
 
+    [HideInInspector] 
+    public CardGameManager cardGameManager;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -32,6 +33,11 @@ public class Card : MonoBehaviour
 
         GetComponent<SpriteRenderer>().sprite = backImage;
         TurnOnBackFace();
+    }
+
+    public static bool IsSameCards(Card card1, Card card2)
+    {
+        return card1.frontImage.sprite == card2.frontImage.sprite;
     }
 
     //카드 앞면 이미지 가져오기
@@ -52,16 +58,57 @@ public class Card : MonoBehaviour
         anim.SetBool("IsOpen", false);
     }
 
+    // Animation Event
     public void TurnOnFrontFace()
     {
         frontImage.color = new Color(1f, 1f, 1f, 1f);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
     }
 
+    // Animation Event
     public void TurnOnBackFace()
     {
         frontImage.color = new Color(1f, 1f, 1f, 0f);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
 
+    public void OnBeginOfCardAction()
+    {
+        if(CardGameManager.notTheSameCard)
+        {
+            StartCoroutine(ReverseFrontCardDelay());
+        }
+        else
+        {
+            IsAnyCardOpening = true;
+        }
+    }
+
+    private IEnumerator ReverseFrontCardDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        CardGameManager.notTheSameCard = false;
+        FindObjectsOfType<Card>()
+            .Where(card => card.anim.GetBool("IsOpen") == true && card.flipLocked == false).ToList()
+            .ForEach(card => card.anim.SetBool("IsOpen", false));
+
+        IsAnyCardOpening = true;
+
+    }
+
+    public void OnEndOfCardAction()
+    {
+        IsAnyCardOpening = false;
+    }
+
+    private void OnMouseDown()
+    {
+        // 아무 카드도 열리고 있지않을때만 열리게
+        if(!IsAnyCardOpening && !flipLocked)
+        {
+            anim.SetBool("IsOpen", !anim.GetBool("IsOpen"));
+            cardGameManager.CheckIfSameCardFlipped(this);
+        }
+    }
 }
