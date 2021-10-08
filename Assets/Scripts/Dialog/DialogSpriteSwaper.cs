@@ -49,9 +49,9 @@ public class DialogSpriteSwapper : MonoBehaviour
         while(true)
         {
             turnOnAlpha = currSeconds / swapSeconds;
-            imageToTurnOff.color.a = 1f - turnOnAlpha;
-            imageToTurnOn.color.a = 1f - turnOnAlpha;
-
+            //imageToTurnOff.color.a = 1f - turnOnAlpha;
+            //imageToTurnOn.color.a = 1f - turnOnAlpha;
+            //imageToTurnOn.SetSprite
 
             currSeconds += Time.deltaTime;
             yield return null;
