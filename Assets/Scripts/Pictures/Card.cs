@@ -15,23 +15,53 @@ public class Card : MonoBehaviour
 
     Animator anim;
 
+    [SerializeField /*DEBUG*/]
     public bool isFront = false;
+
+    [SerializeField]
+    private Sprite backImage;
+
+    [SerializeField] 
+    public SpriteRenderer frontImage;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        ShowBackImage();
+
+        GetComponent<SpriteRenderer>().sprite = backImage;
+        TurnOnBackFace();
     }
 
     //카드 앞면 이미지 가져오기
-    public void ShowImage()
+    public void ShowFrontImage()
     {
         isFront = true;
-        //transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("CARD" + imgNum) as Texture2D;
+
+        // Front로 뒤집는 애니메이션 플레이
+        anim.SetBool("IsOpen", true);
     }
+
     //카드 뒷면 이미지 가져오기
-    public void BackImage()
+    public void ShowBackImage()
     {
         isFront = false;
-        //transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("BACK" + backNum) as Texture2D;
+
+        // Back로 뒤집는 애니메이션 플레이
+        anim.SetBool("IsOpen", false);
     }
+
+    public void TurnOnFrontFace()
+    {
+        frontImage.color = new Color(1f, 1f, 1f, 1f);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+    }
+
+    public void TurnOnBackFace()
+    {
+        frontImage.color = new Color(1f, 1f, 1f, 0f);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+    }
+
 }

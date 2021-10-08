@@ -29,7 +29,7 @@ public class CardGameManager : MonoBehaviour
     int[] arrHit = new int[13]; //카드 앞뒤 구별
 
     [SerializeField]
-    public SpriteRenderer[] cards;
+    public Card[] cards;
 
     [SerializeField]
     public Sprite[] cardSprites;
@@ -44,20 +44,20 @@ public class CardGameManager : MonoBehaviour
     void Update()
     {
         // 남은 시간을 감소시켜준다.
-        setTime -= Time.deltaTime;
+        //setTime -= Time.deltaTime;
 
-        // 전체시간이 60초 미만일 때
-        if (setTime < 60f)
-        {
-            gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
-        }
+        //// 전체시간이 60초 미만일 때
+        //if (setTime < 60f)
+        //{
+        //    gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
+        //}
 
-        // 남은 시간이 0보다 작아질 때
-        if (setTime <= 0)
-        {
-            // UI 텍스트를 0초로 고정시킴.
-            gameTimeUI.text = "남은 시간 : 0초";
-        }
+        //// 남은 시간이 0보다 작아질 때
+        //if (setTime <= 0)
+        //{
+        //    // UI 텍스트를 0초로 고정시킴.
+        //    gameTimeUI.text = "남은 시간 : 0초";
+        //}
     }
 
     //스테이지 초기화
@@ -77,7 +77,7 @@ public class CardGameManager : MonoBehaviour
 
         for(int i = 0; i < cards.Length; ++i)
         {
-            cards[i].sprite = cardSprites[i];
+            cards[i].frontImage.sprite = cardSprites[i];
         }
     }
 
@@ -92,6 +92,7 @@ public class CardGameManager : MonoBehaviour
             cardSprites[i] = cardSprites[rand];
             cardSprites[rand] = temp;
         }
+
     }
 
 
