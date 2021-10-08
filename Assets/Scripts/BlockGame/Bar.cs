@@ -8,7 +8,7 @@ public class Bar : MonoBehaviour
     [SerializeField] GameObject bar;
     [SerializeField] GameObject wall_Right;
     [SerializeField] GameObject wall_Left;
-    public Rigidbody2D rigid;
+    public Rigidbody2D rigid_bar;
     public float velocity_bar;
     public float vec_bar;
     public BoxCollider2D coll_Bar;
@@ -17,7 +17,7 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigid = bar.GetComponent<Rigidbody2D>();
+        rigid_bar = bar.GetComponent<Rigidbody2D>();
         coll_Bar = bar.GetComponent<BoxCollider2D>();
         coll_Wall = wall_Right.GetComponent<BoxCollider2D>();
         coll_Wall = wall_Right.GetComponent<BoxCollider2D>();
@@ -26,6 +26,6 @@ public class Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigid.velocity = Vector2.right * vec_bar * velocity_bar;
+        rigid_bar.velocity = Vector2.right * vec_bar * velocity_bar;    //  πŸ ¿Ãµø
     }
 }
