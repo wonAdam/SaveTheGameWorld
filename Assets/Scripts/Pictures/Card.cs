@@ -26,12 +26,12 @@ public class Card : MonoBehaviour
     public void ShowImage()
     {
         isFront = true;
-        transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("CARD" + imgNum) as Texture2D;
+        //transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("CARD" + imgNum) as Texture2D;
     }
     //카드 뒷면 이미지 가져오기
     public void BackImage()
     {
         isFront = false;
-        transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("BACK" + backNum) as Texture2D;
+        //transform.GetComponent<Renderer>().material.mainTexture = Resouces.Load("BACK" + backNum) as Texture2D;
     }
 }
