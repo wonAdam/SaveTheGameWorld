@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rigid_Ball;
     public CircleCollider2D coll_Ball;
     public float speed;
+    public float slopeOfBar;
 
     public float hitPointY;
     public float hitPointX;
@@ -44,7 +45,9 @@ public class Ball : MonoBehaviour
         if (coll_Ball.IsTouching(bar.coll_Bar)) //  ¹Ù¿¡ ºÎµúÈû
         {
             curVec += bar.rigid_bar.velocity;
-            curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+            Vector2 ballToBar = (collision.collider.transform.position - transform.position).normalized;
+            curVec = (new Vector2(-ballToBar.x, -ballToBar.y) * slopeOfBar + new Vector2(curVec.x, -curVec.y)).normalized * speed;
+
             rigid_Ball.velocity = curVec;
         }
         if (coll_Ball.IsTouching(upWall)) //  À§ÂÊ º®¿¡ ºÎµúÈû
