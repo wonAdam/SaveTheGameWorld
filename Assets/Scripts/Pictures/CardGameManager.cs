@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManage : MonoBehaviour
+public class CardGameManager : MonoBehaviour
 {
 
     public Text gameTimeUI, GameOver;
@@ -28,13 +28,16 @@ public class GameManage : MonoBehaviour
     int[] arrCards = new int[13]; //카드 번호
     int[] arrHit = new int[13]; //카드 앞뒤 구별
 
+    [SerializeField]
+    public SpriteRenderer[] cards;
+
+    [SerializeField]
+    public Sprite[] cardSprites;
+
     void Start()
     {
-        ClearStage();
+        InitStage();
         MakeStage();
-        CheckCard();
-        DestroyStage();
-        //NextStage();
     }
 
 
@@ -58,14 +61,12 @@ public class GameManage : MonoBehaviour
     }
 
     //스테이지 초기화
-    public void ClearStage()
+    public void InitStage()
     {
         touchCnt = 0;
         cardNum = 0;
         lastNum = 0;
         hitCnt = 0;
-
-        MakeStage();
     }
 
 
@@ -74,53 +75,23 @@ public class GameManage : MonoBehaviour
     {
         Shuffling();
 
-        var x = 0; //시작카드의 x좌표
-        var z = 0; //시작카드의 y좌표
-
-        for (int i = 1; i <= 12; i++)
+        for(int i = 0; i < cards.Length; ++i)
         {
-            //var card = Instantiate(Resources.Load("Prefab/Card")); //Resources폴더에 있는 Prefab 오브젝트 호출
-
-            //card.transform.position = new Vector3(x, 0, z); //카드배치
-
-            ////태그 설정
-            //card.tag = "CARD" + arrCards[i];
-
-
-            if (i % 3 == 0)
-            {
-
-            }
-
-            //yield WaitForSeconds(0.025);
+            cards[i].sprite = cardSprites[i];
         }
     }
-
-
 
 
     //카드 섞기
     public void Shuffling()
     {
-        for (int i = 1; i <= 12; i++)
+        for (int i = 0; i < cardSprites.Length; ++i)
         {
-            arrCards[i] = i; //카드 번호 넣기
-            arrHit[i] = 0; //모든 카드 뒤집은 상태
+            int rand = Random.Range(0, 12);
+            Sprite temp = cardSprites[i];
+            cardSprites[i] = cardSprites[rand];
+            cardSprites[rand] = temp;
         }
-
-        for (int i = 1; i <= 10; i++)//카드 섞기(10회)
-        {
-            int r1 = Random.Range(1, 13);
-            int r2 = Random.Range(1, 13);
-
-            //값 교환하기
-            int temp = arrCards[r1];
-            arrCards[r1] = arrCards[r2];
-            arrCards[r2] = temp;
-
-        }
-
-
     }
 
 
