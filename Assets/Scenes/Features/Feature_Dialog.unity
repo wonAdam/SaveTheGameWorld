@@ -289,6 +289,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 106762957}
   characterOneImage: {fileID: 1708742364}
   characterTwoImage: {fileID: 1299755156}
+  placeText: {fileID: 716519912}
   dialogContentText: {fileID: 1927219845}
   dialogCharacterNameText: {fileID: 381324988}
   dialogDatas:
@@ -730,8 +731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OOO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
+  m_sharedMaterial: {fileID: 7013070558215139859, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -955,8 +956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OOO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
+  m_sharedMaterial: {fileID: 7013070558215139859, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1692,8 +1693,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ContentContentContentContentContentContentContentContentContentContentContent
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
+  m_sharedMaterial: {fileID: 7013070558215139859, guid: a59bbc810a4d03541bdf283f488d6939, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
