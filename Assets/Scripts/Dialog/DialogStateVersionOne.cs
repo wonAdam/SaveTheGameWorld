@@ -18,7 +18,13 @@ public class DialogStateVersionOne : DialogStateBase
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= dialogManager.allowMoveToNextRatio)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                animator.SetTrigger("Next");
+            }
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

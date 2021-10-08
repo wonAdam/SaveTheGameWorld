@@ -15,13 +15,20 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     public int currDialogIndex = 0;
 
     [SerializeField]
-    public Image backgroundImage;
+    [Range(0f, 1f)]
+    public float allowMoveToNextRatio;
 
     [SerializeField]
-    public Image characterOneImage;
+    public DialogSpriteSwapper backgroundImage;
 
     [SerializeField]
-    public Image characterTwoImage;
+    public DialogSpriteSwapper characterOneImage;
+
+    [SerializeField]
+    public DialogSpriteSwapper characterTwoImage;
+
+    [SerializeField]
+    public DialogPlaceText placeText;
 
     [SerializeField]
     public TextMeshProUGUI dialogContentText;
@@ -40,12 +47,12 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
 
     public void PlayDialogWithIndex(int index)
     {
-        // 우선 그냥 Set하는 거로... 나중에 애니메이션 추가할 예정
         dialogContentText.text = dialogDatas[index].dialogContent;
-        dialogCharacterNameText.text = dialogDatas[index].dialogCharacterName;
-        characterOneImage.sprite = dialogDatas[index].characterOneImage;
-        characterTwoImage.sprite = dialogDatas[index].characterTwoImage;
-        backgroundImage.sprite = dialogDatas[index].backgroundImage;
+        dialogCharacterNameText.text = dialogDatas[index].dialogCharacterName.ToString();
+        characterOneImage.SwapSprite(dialogDatas[index].characterOneImage);
+        characterTwoImage.SwapSprite(dialogDatas[index].characterTwoImage);
+        backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
+        placeText.ShowPlaceText(dialogDatas[index].placeName);
     }
 
 }

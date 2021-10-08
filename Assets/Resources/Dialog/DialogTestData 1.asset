@@ -15,5 +15,8 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   characterOneImage: {fileID: 21300000, guid: 97d6bf3d1f55fdd48afbd6c1b075ed8d, type: 3}
   characterTwoImage: {fileID: 0}
-  dialogContent: 
-  dialogCharacterName: 
+  dialogContent: " \uC548\uB155\uD558\uC2ED\uB2C8\uAE4C! \\n\uC624\uB298 \uC785\uC0AC\uD55C
+    \uAC38\uAC38\uC785\uB2C8\uB2E4!"
+  dialogCharacterName: 2
+  placeName: 
+  isAllowToSkipWithTouch: 1
