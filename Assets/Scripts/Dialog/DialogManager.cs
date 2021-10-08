@@ -55,4 +55,15 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
         placeText.ShowPlaceText(dialogDatas[index].placeName);
     }
 
+
+    public void SetPlaceText(int index)
+    {
+        placeText.ShowPlaceText(dialogDatas[index].placeName);
+        dialogContentText.text = dialogDatas[index].dialogContent;
+        dialogCharacterNameText.text = dialogDatas[index].dialogCharacterName.ToString();
+        characterOneImage.SwapSprite(dialogDatas[index].characterOneImage);
+        characterTwoImage.SwapSprite(dialogDatas[index].characterTwoImage);
+        backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
+    }
+
 }

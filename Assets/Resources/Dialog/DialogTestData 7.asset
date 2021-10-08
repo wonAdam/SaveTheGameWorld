@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DialogTestData 7
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 0}
-  characterOneImage: {fileID: 21300000, guid: 936e659bc7d966248836506237d72ce8, type: 3}
-  characterTwoImage: {fileID: 21300000, guid: 2352c3faae1698841b4936ecd5b4caad, type: 3}
+  characterOneImage: {fileID: 21300000, guid: dbee9db99a677754aaae0874f0c14b91, type: 3}
+  characterTwoImage: {fileID: 21300000, guid: 6b50ca0fb41a63248b160357224a45b8, type: 3}
   dialogContent: "\uC557 \uC8C4\uC1A1\uD569\uB2C8\uB2E4!"
   dialogCharacterName: 2
   placeName: 

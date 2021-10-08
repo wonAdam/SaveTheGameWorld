@@ -21,8 +21,18 @@ public class DialogPlaceText : MonoBehaviour
     [SerializeField]
     private float disappearingSeconds;
 
+    public void SetText(string content)
+    {
+        placeText.text = content;
+    }
+
     public void ShowPlaceText(string placeText)
     {
+        if(placeText == string.Empty)
+        {
+            return;
+        }
+
         StartCoroutine(ShowPlaceTextCoroutine(placeText));
     }
 
@@ -31,7 +41,7 @@ public class DialogPlaceText : MonoBehaviour
         this.placeText.text = placeText;
 
         float waitSeconds = appearingSeconds;
-        while (waitSeconds <= 0f)
+        while (waitSeconds > 0f)
         {
             waitSeconds -= Time.deltaTime;
 
@@ -43,7 +53,7 @@ public class DialogPlaceText : MonoBehaviour
         yield return new WaitForSeconds(stayingSeconds);
 
         waitSeconds = disappearingSeconds;
-        while (waitSeconds <= 0f)
+        while (waitSeconds > 0f)
         {
             waitSeconds -= Time.deltaTime;
 

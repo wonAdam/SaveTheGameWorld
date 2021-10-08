@@ -294,6 +294,7 @@ MonoBehaviour:
   dialogCharacterNameText: {fileID: 381324988}
   dialogDatas:
   - {fileID: 11400000, guid: 6d731853788da974c986ca8ba2ce708a, type: 2}
+  - {fileID: 11400000, guid: 610916df7c7aac847b84dc19afd70d4b, type: 2}
   - {fileID: 11400000, guid: e7fb124297e1ec145ad5ffaf98a43b79, type: 2}
   - {fileID: 11400000, guid: ac86096d4c05d9c42b03e004682dabfd, type: 2}
   - {fileID: 11400000, guid: a7fa2fc9cab132c4f89b7d50db360b97, type: 2}
@@ -310,6 +311,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f89bc447c1b0b354ebe2d400822c3375, type: 2}
   - {fileID: 11400000, guid: 301dffc3516b78a47a111c4da2b5a6c6, type: 2}
   - {fileID: 11400000, guid: dd08237c22c6f7249975943b53211653, type: 2}
+  - {fileID: 11400000, guid: e6c9c05f134c0be4f9a1149fee95afb1, type: 2}
   - {fileID: 11400000, guid: e6c9c05f134c0be4f9a1149fee95afb1, type: 2}
 --- !u!95 &140622882
 Animator:
@@ -1093,7 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1435,7 +1437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1603,7 +1605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

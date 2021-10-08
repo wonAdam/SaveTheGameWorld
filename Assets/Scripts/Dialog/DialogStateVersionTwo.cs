@@ -1,30 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-/// <summary>
-/// 
-/// </summary>
-public class DialogStateVersionOne : DialogStateBase
+public class DialogStateVersionTwo : DialogStateBase
 {
+    [SerializeField] private UnityEvent<int> onStateEnter;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
-        dialogManager.PlayDialogWithIndex(dataIndex);
+        dialogManager.SetPlaceText(dataIndex);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= dialogManager.allowMoveToNextRatio)
-        {
-            if(Input.GetMouseButtonDown(0) && dialogManager.dialogDatas[dataIndex].isAllowToSkipWithTouch)
-            {
-                animator.SetTrigger("Next");
-            }
-        }
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -44,4 +38,5 @@ public class DialogStateVersionOne : DialogStateBase
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+
 }

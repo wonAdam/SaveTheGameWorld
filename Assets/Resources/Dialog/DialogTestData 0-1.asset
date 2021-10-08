@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
-  m_Name: DialogTestData 8
+  m_Name: DialogTestData 0-1
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 0}
-  characterOneImage: {fileID: 21300000, guid: 0d1ed9bf2bbdb2c4eacf9613c78dd176, type: 3}
-  characterTwoImage: {fileID: 21300000, guid: 7420c66b278c91a4db9144ccf650e357, type: 3}
-  dialogContent: "\uC774\uC81C\uC57C \uB208\uC774 \uD3B8\uC548\uD558\uB124."
-  dialogCharacterName: 1
-  placeName: 
-  isAllowToSkipWithTouch: 1
+  characterOneImage: {fileID: 0}
+  characterTwoImage: {fileID: 0}
+  dialogContent: 
+  dialogCharacterName: 0
+  placeName: "\uAD00\uB9AC\uAD6D \uC0AC\uBB34\uC2E4"
+  isAllowToSkipWithTouch: 0
