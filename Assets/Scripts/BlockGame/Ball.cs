@@ -17,6 +17,9 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rigid_Ball;
     public CircleCollider2D coll_Ball;
     public float speed;
+
+    public float hitPointY;
+    public float hitPointX;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,10 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Vector2.SqrMagnitude(rigid_Ball.velocity) < speed)
+        {
+            rigid_Ball.velocity = rigid_Ball.velocity.normalized * speed;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)  //  ¾îµò°¡¿¡ ºÎµúÈú½Ã
     {
@@ -51,6 +57,40 @@ public class Ball : MonoBehaviour
             curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
             rigid_Ball.velocity = curVec;
         }
+        if (collision.collider.CompareTag("Block"))    //  ºí·Ï¿¡ ºÎµúÈû
+        {
 
+            foreach(ContactPoint2D contactHIt in collision.contacts)
+            {
+                Vector2 collPosition = collision.collider.transform.position;
+                Vector2 hitPoint = contactHIt.point;
+                hitPointY = collPosition.y - hitPoint.y;
+                hitPointX = collPosition.x - hitPoint.x;
+                if (hitPointY >= 0.45f)  //  ºí·Ï ¾Æ·§¸é¿¡ ºÎµúÈû
+                {
+                    curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+                    rigid_Ball.velocity = curVec;
+                }
+                if (hitPointY <= -0.45f)  //  ºí·Ï À­¸é¿¡ ºÎµúÈû
+                {
+                    curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+                    rigid_Ball.velocity = curVec;
+                }
+                if (hitPointX >= 1f)  //  ºí·Ï ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
+                {
+                    curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
+                    rigid_Ball.velocity = curVec;
+                }
+                if (hitPointX <= -1f)  //  ºí·Ï ¿ÞÂÊ¸é¿¡ ºÎµúÈû
+                {
+                    curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
+                    rigid_Ball.velocity = curVec;
+                }
+            }
+
+            Destroy(collision.collider.gameObject);
+
+
+        }
     }
 }
