@@ -6,7 +6,7 @@ public class SimpleSingletonBehaviour<T> : MonoBehaviour where T : SimpleSinglet
 {
     public static T Instance;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Instance = (T)this;
     }

@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757608614}
   - component: {fileID: 757608615}
+  - component: {fileID: 757608616}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -249,3 +250,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a1d3fb08b34784caa0315f05340e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &757608616
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757608613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4be946202f9d514459480d3f42e1c18b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
