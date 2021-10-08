@@ -8,15 +8,15 @@ public class MoveBtn : MonoBehaviour
 
     public void RightBtn()
     {
-        bar.velocity_bar = 1;
+        bar.vec_bar = 1;
     }
     public void LeftBtn()
     {
-        bar.velocity_bar = -1;
+        bar.vec_bar = -1;
 
     }
     public void stopBtn()
     {
-        bar.velocity_bar = 0;
+        bar.vec_bar = 0;
     }
 }
