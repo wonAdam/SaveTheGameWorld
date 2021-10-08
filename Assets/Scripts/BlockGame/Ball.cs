@@ -5,6 +5,9 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] GameObject ball;
+    [SerializeField] GameObject gameOverText;
+    [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject gameClearText;
     [SerializeField] Bar bar;
     [SerializeField] BoxCollider2D rightWall;
     [SerializeField] BoxCollider2D leftWall;
@@ -21,15 +24,22 @@ public class Ball : MonoBehaviour
 
     public float hitPointY;
     public float hitPointX;
+
+    public int score;
+    public int MaxBlock;
     // Start is called before the first frame update
     void Start()
     {
+        gameOverText.SetActive(false);
+        gameOverMenu.SetActive(false);
         rigid_Ball = ball.GetComponent<Rigidbody2D>();
         coll_Ball = ball.GetComponent<CircleCollider2D>();
         vec_Ball = Vector2.down;
         initVec = (vec_Ball * velocity_Ball).normalized * speed;
         rigid_Ball.velocity = initVec;
         curVec = initVec;
+
+        score = 0;
     }
 
     // Update is called once per frame
@@ -59,6 +69,11 @@ public class Ball : MonoBehaviour
         {
             curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
             rigid_Ball.velocity = curVec;
+        }
+        if (coll_Ball.IsTouching(downWall)) //  ÇÏ´Ü º®¿¡ ºÎµúÈû
+        {
+            gameOverText.SetActive(true);
+            Time.timeScale = 0;
         }
         if (collision.collider.CompareTag("Block"))    //  ºí·Ï¿¡ ºÎµúÈû
         {
@@ -90,10 +105,14 @@ public class Ball : MonoBehaviour
                     rigid_Ball.velocity = curVec;
                 }
             }
-
+            score++;
             Destroy(collision.collider.gameObject);
 
-
+            if (score == MaxBlock)
+            {
+                gameClearText.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 }
