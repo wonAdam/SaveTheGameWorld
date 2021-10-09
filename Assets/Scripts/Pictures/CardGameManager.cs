@@ -9,10 +9,18 @@ public class CardGameManager : MonoBehaviour
 {
     public static bool notTheSameCard = false;
 
+    public static bool isPlaying = false;
+
     public Text gameTimeUI;
 
     [SerializeField]
     private GameObject GameOver;
+
+    [SerializeField]
+    private GameObject GameStartPanel;
+
+    [SerializeField]
+    private GameObject GameWinPanel;
 
     //전체 제한 시간 
     [SerializeField]
@@ -26,31 +34,38 @@ public class CardGameManager : MonoBehaviour
     [SerializeField]
     public Sprite[] cardSprites;
 
+
     void Start()
     {
+        gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
+
         MakeStage();
     }
 
 
     void Update()
     {
-        //남은 시간을 감소시켜준다.
-        setTime -= Time.deltaTime;
-
-        // 전체시간이 60초 미만일 때
-        if (setTime < 60f)
+        if(isPlaying)
         {
-            gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
-        }
+            //남은 시간을 감소시켜준다.
+            setTime -= Time.deltaTime;
 
-        // 남은 시간이 0보다 작아질 때
-        if (setTime <= 0)
-        {
-            // UI 텍스트를 0초로 고정시킴.
-            gameTimeUI.text = "남은 시간 : 0초";
+            // 전체시간이 60초 미만일 때
+            if (setTime < 60f)
+            {
+                gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
+            }
 
-            // 게임 오버 로직
-            StartCoroutine(GameOverAfterSeconds(1f));
+            // 남은 시간이 0보다 작아질 때
+            if (setTime <= 0)
+            {
+                // UI 텍스트를 0초로 고정시킴.
+                gameTimeUI.text = "남은 시간 : 0초";
+
+                // 게임 오버 로직
+                StartCoroutine(GameOverAfterSeconds(1f));
+            }
+
         }
     }
 
@@ -94,6 +109,17 @@ public class CardGameManager : MonoBehaviour
 
     }
 
+    private bool CheckIfAllCardFlipped()
+    {
+        // 모든 카드가 flipLocked이면 전부 맞게 뒤집은것이다.
+        foreach(var card in cards)
+        {
+            if(!card.flipLocked)
+                return false;
+        }
+
+        return true;
+    }
 
     [HideInInspector]
     private Card cardOnFrontFace = null;
@@ -111,6 +137,13 @@ public class CardGameManager : MonoBehaviour
                 cardOnFrontFace = null;
                     
                 notTheSameCard = false;
+
+                if(CheckIfAllCardFlipped())
+                {
+                    // 게임 승리 로직
+                    GameWinPanel.SetActive(true);
+                    isPlaying = false;
+                }
             }
             else
             {

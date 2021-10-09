@@ -105,7 +105,9 @@ public class Card : MonoBehaviour
     private void OnMouseDown()
     {
         // 아무 카드도 열리고 있지않을때만 열리게
-        if(!IsAnyCardOpening && !flipLocked)
+        // 해당 카드가 이미 열려있거나 그러면 Lock되어있음
+        // 그리고 게임이 시작되지 않았으면 인터랙션하지않음.
+        if(!IsAnyCardOpening && !flipLocked && CardGameManager.isPlaying)
         {
             anim.SetBool("IsOpen", !anim.GetBool("IsOpen"));
             cardGameManager.CheckIfSameCardFlipped(this);
