@@ -6,7 +6,6 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] GameObject ball;
     [SerializeField] GameObject gameOverText;
-    [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject gameClearText;
     [SerializeField] Bar bar;
     [SerializeField] BoxCollider2D rightWall;
@@ -33,7 +32,6 @@ public class Ball : MonoBehaviour
     void Start()
     {
         gameOverText.SetActive(false);
-        gameOverMenu.SetActive(false);
         rigid_Ball = ball.GetComponent<Rigidbody2D>();
         coll_Ball = ball.GetComponent<CircleCollider2D>();
 

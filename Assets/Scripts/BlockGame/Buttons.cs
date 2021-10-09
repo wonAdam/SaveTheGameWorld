@@ -23,15 +23,6 @@ public class Buttons : MonoBehaviour
     {
         gameMeue.SetActive(false);
     }
-    public void titleBtn()
-    {
-        // 타이틀로 돌아가는 버튼
-    }
-    public void endGame()
-    {
-        //게임 종료 버튼
-
-    }
     public void retry()
     {
         // 게임 재시작
@@ -50,6 +41,7 @@ public class Buttons : MonoBehaviour
     }
     public void gameStart()
     {
+        Time.timeScale = 1;
         gameStartBtn.SetActive(false);
         ball.vec_Ball = Vector2.down;
         ball.initVec = (ball.vec_Ball * ball.velocity_Ball).normalized * ball.speed;
