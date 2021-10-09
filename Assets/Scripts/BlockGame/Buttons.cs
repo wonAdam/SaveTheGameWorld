@@ -15,6 +15,7 @@ public class Buttons : MonoBehaviour
     private void Start()
     {
         gameMeue.SetActive(false);
+        gameStartBtn.SetActive(true);
     }
     public void pauseBtn()
     {
@@ -36,6 +37,7 @@ public class Buttons : MonoBehaviour
     public void retry()
     {
         // 게임 재시작
+        SceneManager.LoadScene(7);
         
     }
     public void gameOver()  //일단 게임 오버 문구 출력 후 화면 아무데나 클릭하면 재시작 혹은 타이틀로 메뉴 띄워두게 해놨음

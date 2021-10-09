@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Features/Feature_DialogC2Success.unity
     guid: c3e3a6de98af39a48b86d4922394bc74
+  - enabled: 1
+    path: Assets/Scenes/Features/BlockGame.unity
+    guid: b5374b7b17d8d7b40aef53568e331bba
   m_configObjects: {}
