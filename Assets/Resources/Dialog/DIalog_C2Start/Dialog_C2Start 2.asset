@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
-  m_Name: Dialog Data 6
+  m_Name: Dialog_C2Start 2
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 0}
   characterOneImage: {fileID: 0}
   characterTwoImage: {fileID: 0}
-  dialogContent: "\uBC84\uADF8 \uBC1C\uC0DD!!"
+  dialogContent: "\uC5EC\uC790\uC8FC\uC778\uACF5 \uC606\uC5D0\uB294 \uD638\uAC10\uB3C4
+    \uBC14\uAC00 \uC788\uB2E4."
   dialogCharacterName: 0
   placeName: 
   isAllowToSkipWithTouch: 1
+  sfx: {fileID: 0}

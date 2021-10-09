@@ -10,6 +10,8 @@ public enum ChacterNames
     경고음,
     주변_사람들,
     용사,
+    남자주인공,
+    여자주인공,
 }
 
 [CreateAssetMenu (fileName = "New Dialog Data", menuName = "Dialog Data/New Dialog Data", order = 0)]

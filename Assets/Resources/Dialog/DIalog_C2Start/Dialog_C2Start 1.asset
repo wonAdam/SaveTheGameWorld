@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
+  m_Name: Dialog_C2Start 1
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 0}
+  characterOneImage: {fileID: 0}
+  characterTwoImage: {fileID: 0}
+  dialogContent: "\uB0A8\uC790\uC8FC\uC778\uACF5\uC774 \uC5EC\uC790\uC8FC\uC778\uACF5
+    \uC55E\uC5D0 \uBB34\uB98E \uAFC7\uACE0 \uAF43\uB2E4\uBC1C\uC744 \uC8FC\uACE0
+    \uC788\uB2E4."
+  dialogCharacterName: 0
+  placeName: 
+  isAllowToSkipWithTouch: 1
+  sfx: {fileID: 0}

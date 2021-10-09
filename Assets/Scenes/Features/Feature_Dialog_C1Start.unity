@@ -156,11 +156,11 @@ RectTransform:
   m_Father: {fileID: 140622886}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 1080, y: 1295.4}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &106762957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   imageOne: {fileID: 1106676601}
   imageTwo: {fileID: 659177374}
   swapSeconds: 1
+  one: 1
 --- !u!1 &113068041
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +293,22 @@ MonoBehaviour:
   placeText: {fileID: 716519912}
   dialogContentText: {fileID: 1927219845}
   dialogCharacterNameText: {fileID: 381324988}
-  dialogDatas: []
+  dialogDatas:
+  - {fileID: 11400000, guid: 751ebdabc612162489cce0d7a648d53c, type: 2}
+  - {fileID: 11400000, guid: 5ef407df96174114c96b2f48d3e46645, type: 2}
+  - {fileID: 11400000, guid: 8778eb25581cc1e4cb2fc6bcc2f368a3, type: 2}
+  - {fileID: 11400000, guid: 89cdc37bf35d7d049ba34f7d8ce0cc65, type: 2}
+  - {fileID: 11400000, guid: b1005c13bb24ac846a8c873e6682aba3, type: 2}
+  - {fileID: 11400000, guid: 828f3a360f8b7f34fbd4199883942bbb, type: 2}
+  - {fileID: 11400000, guid: 07de1c57991784943a6c3966708ae958, type: 2}
+  - {fileID: 11400000, guid: e89c76414ba8b8c41b5fec87be3e4dc9, type: 2}
+  - {fileID: 11400000, guid: 74f65280cbfec6d469e3804d4d97e66d, type: 2}
+  - {fileID: 11400000, guid: 4f9a3fc4d9eaf174d9a2079fc55a44bb, type: 2}
+  - {fileID: 11400000, guid: 7bc9b355fcfae53459ac6f546f04b0a5, type: 2}
+  - {fileID: 11400000, guid: 5738fec9adfc1a547bcc6494371988e3, type: 2}
+  - {fileID: 11400000, guid: 2f1200c11e692064d8798f8cd8c0237f, type: 2}
+  currSfx: {fileID: 0}
+  nextSceneName: 
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
@@ -303,7 +319,7 @@ Animator:
   m_GameObject: {fileID: 140622880}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4be946202f9d514459480d3f42e1c18b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0645c5f4e4e5901499b574375a7f70ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -435,8 +451,8 @@ Camera:
   m_GameObject: {fileID: 146926041}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -565,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -920,7 +936,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &381324989
@@ -1020,6 +1036,10 @@ PrefabInstance:
     - target: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_Name
       value: PauseWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773879996480733762, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_Pivot.x
@@ -1707,7 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1716,7 +1736,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1825,6 +1845,7 @@ MonoBehaviour:
   imageOne: {fileID: 155265227}
   imageTwo: {fileID: 113068043}
   swapSeconds: 1
+  one: 1
 --- !u!1 &1450088364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1993,6 +2014,7 @@ MonoBehaviour:
   imageOne: {fileID: 1450088366}
   imageTwo: {fileID: 350368999}
   swapSeconds: 1
+  one: 1
 --- !u!1 &1927219843
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,12 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     [SerializeField]
     public List<DialogData> dialogDatas;
 
+    [SerializeField]
+    public AudioSource currSfx;
+
+    [SerializeField]
+    public string nextSceneName;
+
 
     protected override void Awake()
     {
@@ -50,20 +56,29 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
 
     public void PlayDialogWithIndex(int index)
     {
+        if(dialogDatas.Count <= index)
+        {
+            GetComponent<Animator>().SetTrigger("End");
+            return;
+        }
+
         dialogContentText.text = dialogDatas[index].dialogContent;
         dialogCharacterNameText.text = dialogDatas[index].dialogCharacterName.ToString();
         characterOneImage.SwapSprite(dialogDatas[index].characterOneImage);
         characterTwoImage.SwapSprite(dialogDatas[index].characterTwoImage);
         backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
-        placeText.ShowPlaceText(dialogDatas[index].placeName);
+        //placeText.ShowPlaceText(dialogDatas[index].placeName);
+
+        if (currSfx != null)
+            Destroy(currSfx.gameObject);
 
         if(dialogDatas[index].sfx != null)
         {
             var audioSource = new GameObject();
-            audioSource.AddComponent<AudioSource>();
+            currSfx = audioSource.AddComponent<AudioSource>();
+            audioSource.GetComponent<AudioSource>().volume = 0.5f;
             audioSource.GetComponent<AudioSource>().PlayOneShot(dialogDatas[index].sfx);
             Destroy(audioSource, dialogDatas[index].sfx.length);
-
         }
     }
 
@@ -78,7 +93,7 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
         backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
     }
 
-    public void EndScene(string nextSceneName)
+    public void EndScene()
     {
         SceneManager.LoadScene(nextSceneName);
     }

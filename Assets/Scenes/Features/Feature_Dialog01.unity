@@ -176,6 +176,7 @@ MonoBehaviour:
   imageOne: {fileID: 1106676601}
   imageTwo: {fileID: 659177374}
   swapSeconds: 1
+  one: 1
 --- !u!1 &113068041
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +313,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 301dffc3516b78a47a111c4da2b5a6c6, type: 2}
   - {fileID: 11400000, guid: dd08237c22c6f7249975943b53211653, type: 2}
   - {fileID: 11400000, guid: e6c9c05f134c0be4f9a1149fee95afb1, type: 2}
+  currSfx: {fileID: 0}
+  nextSceneName: 
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
@@ -454,8 +457,8 @@ Camera:
   m_GameObject: {fileID: 146926041}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1040,6 +1043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2773879996480733762, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1383,7 +1390,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 286.3255, y: 103.5641}
+  m_SizeDelta: {x: 350, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &716519910
 MonoBehaviour:
@@ -1844,6 +1851,7 @@ MonoBehaviour:
   imageOne: {fileID: 155265227}
   imageTwo: {fileID: 113068043}
   swapSeconds: 1
+  one: 1
 --- !u!1 &1450088364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,6 +2020,7 @@ MonoBehaviour:
   imageOne: {fileID: 1450088366}
   imageTwo: {fileID: 350368999}
   swapSeconds: 1
+  one: 1
 --- !u!1 &1927219843
 GameObject:
   m_ObjectHideFlags: 0

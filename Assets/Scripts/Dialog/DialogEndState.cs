@@ -11,7 +11,7 @@ public class DialogEndState : DialogStateBase
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
-        dialogManager.EndScene(nextSceneName);
+        dialogManager.EndScene();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

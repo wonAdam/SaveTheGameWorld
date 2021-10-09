@@ -16,6 +16,9 @@ public class DialogSpriteSwapper : MonoBehaviour
 
     private Image backgroundImage;
 
+    [SerializeField /*DEBUG*/]
+    bool one = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,9 @@ public class DialogSpriteSwapper : MonoBehaviour
         backgroundImage = GetComponent<Image>();
         imageOne.preserveAspect = true;
         imageTwo.preserveAspect = true;
+
+        imageOne.color = new Color(imageOne.color.r, imageOne.color.g, imageOne.color.b, 0f);
+        imageTwo.color = new Color(imageTwo.color.r, imageTwo.color.g, imageTwo.color.b, 0f);
     }
     
     public void ChangeImage(Sprite newImage)
@@ -35,17 +41,19 @@ public class DialogSpriteSwapper : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (GetCurrentSprite() == newSprite)
+        if (GetCurrentSprite() == newSprite || newSprite == null)
         {
             return;
         }
 
-        if(imageOne.color.a == 0f)
+        if(one)
         {
+            one = !one;
             StartCoroutine(SwapSpriteCoroutine(imageTwo, imageOne, newSprite));
         }
         else
         {
+            one = !one;
             StartCoroutine(SwapSpriteCoroutine(imageOne, imageTwo, newSprite));
         }
     }
@@ -56,9 +64,13 @@ public class DialogSpriteSwapper : MonoBehaviour
         {
             return imageOne.sprite;
         }
-        else
+        else if(imageTwo.color.a > 0f)
         {
             return imageTwo.sprite;
+        }
+        else
+        {
+            return null;
         }
     }
 
@@ -70,8 +82,16 @@ public class DialogSpriteSwapper : MonoBehaviour
         while (turnOnAlpha < 1f)
         {
             turnOnAlpha = Mathf.Min(currSeconds / swapSeconds, 1f);
-            imageToTurnOff.color = new Color(imageToTurnOff.color.r, imageToTurnOff.color.g, imageToTurnOff.color.b, 1f - turnOnAlpha);
-            imageToTurnOn.color = new Color(imageToTurnOff.color.r, imageToTurnOff.color.g, imageToTurnOff.color.b, turnOnAlpha);
+            imageToTurnOff.color = new Color(
+                imageToTurnOff.color.r, 
+                imageToTurnOff.color.g, 
+                imageToTurnOff.color.b, 
+                imageToTurnOff.sprite != null ? 1f - turnOnAlpha : 0f);
+            imageToTurnOn.color = new Color(
+                imageToTurnOn.color.r,
+                imageToTurnOn.color.g,
+                imageToTurnOn.color.b,
+                imageToTurnOn.sprite != null ? turnOnAlpha : 0f);
 
             currSeconds += Time.deltaTime;
             yield return null;

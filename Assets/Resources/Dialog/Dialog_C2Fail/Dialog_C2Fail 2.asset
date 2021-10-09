@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
-  m_Name: Dialog Data 7
+  m_Name: Dialog_C2Fail 2
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 0}
-  characterOneImage: {fileID: 0}
-  characterTwoImage: {fileID: 0}
-  dialogContent: "\uBC84\uADF8 \uBC1C\uC0DD!!"
-  dialogCharacterName: 0
+  characterOneImage: {fileID: 21300000, guid: 0d1ed9bf2bbdb2c4eacf9613c78dd176, type: 3}
+  characterTwoImage: {fileID: 21300000, guid: 6b50ca0fb41a63248b160357224a45b8, type: 3}
+  dialogContent: "\uC544\uB1E8... \uB9DE\uB294 \uAC83 \uAC19\uC544\uC694..."
+  dialogCharacterName: 2
   placeName: 
   isAllowToSkipWithTouch: 1
   sfx: {fileID: 0}

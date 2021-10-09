@@ -25,6 +25,13 @@ public class Card : MonoBehaviour
     [HideInInspector] 
     public CardGameManager cardGameManager;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip flipSound;
+
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -70,6 +77,11 @@ public class Card : MonoBehaviour
     {
         frontImage.color = new Color(1f, 1f, 1f, 0f);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public void PlayFlipSound()
+    {
+        audioSource.PlayOneShot(flipSound);
     }
 
     public void OnBeginOfCardAction()

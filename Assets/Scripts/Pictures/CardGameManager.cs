@@ -39,6 +39,8 @@ public class CardGameManager : MonoBehaviour
     {
         gameTimeUI.text = "남은 시간 : " + (int)setTime + "초";
 
+        GameStartPanel.SetActive(true);
+
         MakeStage();
     }
 
