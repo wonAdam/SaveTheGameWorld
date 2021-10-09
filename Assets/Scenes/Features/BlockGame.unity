@@ -4314,33 +4314,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 598283286}
     m_Modifications:
-    - target: {fileID: 2773879994460194493, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773879995730216638, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773879995730216638, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773879996069046199, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773879996069046199, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_Name
       value: PauseWindow
       objectReference: {fileID: 0}
     - target: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773879996480733762, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_Pivot.x
@@ -4425,10 +4405,6 @@ PrefabInstance:
     - target: {fileID: 2773879996480733762, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019860701987377635, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}

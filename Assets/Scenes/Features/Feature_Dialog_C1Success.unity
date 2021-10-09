@@ -292,6 +292,7 @@ MonoBehaviour:
   titleSceneName: title
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 1498701294}
+  sirenClip: {fileID: 0}
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
@@ -808,10 +809,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameClearMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 5609456645887102812, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5609456645887102815, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -882,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5609456645887102815, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5609456645887102815, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
