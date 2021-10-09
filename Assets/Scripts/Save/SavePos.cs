@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class SavePos : MonoBehaviour
+public class LookLevel : MonoBehaviour
 {
-    public static float posX;
+
 
     //public void save()
     //{
@@ -19,4 +19,6 @@ public class SavePos : MonoBehaviour
     //    //if¹®
   
     //}
+
+
 }

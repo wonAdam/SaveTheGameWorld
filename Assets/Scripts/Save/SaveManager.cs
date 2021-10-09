@@ -40,7 +40,39 @@ public static class SaveManager
 
         return null;
     }
+
+    public class LevelLock 
+    {
+        int nowlevel; 
+        public GameObject stageNumObject;
+
+        void Start()
+        {
+            Button[] stages = stageNumObject.GetComponentsInChildren<Button>();
+
+            nowlevel = PlayerPrefs.GetInt("levelReached");
+            print(nowlevel);
+            for (int i = nowlevel + 1; i < stages.Length; i++)
+            {
+                stages[i].interactable = false;
+            }
+        }
+        bool IsCompleteLevel(int nowlevel)
+        {
+            if (RewardCompleteList.Count == 0) return false;
+
+            for (int i = 0; i < RewardCompleteList.Count; i++)
+            {
+                if (nowlevel == RewardCompleteList[i]) return true;
+            }
+
+            return false;
+        }
+
+
+    }
 }
+
 
 [Serializable]
 public class PlayerData
