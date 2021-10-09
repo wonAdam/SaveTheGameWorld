@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Features/BlockGame.unity
     guid: b5374b7b17d8d7b40aef53568e331bba
+  - enabled: 1
+    path: Assets/Scenes/Features/picture.unity
+    guid: 12bb77eda50d58346b37a85e7821062f
   m_configObjects: {}

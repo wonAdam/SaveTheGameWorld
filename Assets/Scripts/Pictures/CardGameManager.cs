@@ -65,19 +65,19 @@ public class CardGameManager : MonoBehaviour
                 gameTimeUI.text = "남은 시간 : 0초";
 
                 // 게임 오버 로직
-                StartCoroutine(GameOverAfterSeconds(1f));
+                StartCoroutine(GameOverAfterSeconds(1f, 0.5f));
             }
 
         }
     }
 
-    private IEnumerator GameOverAfterSeconds(float seconds)
+    private IEnumerator GameOverAfterSeconds(float secondsBeforePanel, float secondsBeforeSceneLoad)
     {
         // flip을 막고
         FindObjectsOfType<Card>().ToList().ForEach(card => card.flipLocked = true);
 
         // seconds만큼 멈추고
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(secondsBeforePanel);
 
         // 게임오버 패널을 보여줌
         GameOver.SetActive(true);

@@ -314,7 +314,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd08237c22c6f7249975943b53211653, type: 2}
   - {fileID: 11400000, guid: e6c9c05f134c0be4f9a1149fee95afb1, type: 2}
   currSfx: {fileID: 0}
-  nextSceneName: 
+  nextSceneName: Feature_Dialog_C1Start
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3

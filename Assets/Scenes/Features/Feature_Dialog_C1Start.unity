@@ -308,7 +308,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5738fec9adfc1a547bcc6494371988e3, type: 2}
   - {fileID: 11400000, guid: 2f1200c11e692064d8798f8cd8c0237f, type: 2}
   currSfx: {fileID: 0}
-  nextSceneName: 
+  nextSceneName: picture
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
