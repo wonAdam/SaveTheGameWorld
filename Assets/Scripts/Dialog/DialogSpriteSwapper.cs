@@ -21,6 +21,10 @@ public class DialogSpriteSwapper : MonoBehaviour
     void Start()
     {
         backgroundImage = GetComponent<Image>();
+        imageTwo.type = Image.Type.Simple;
+        imageTwo.preserveAspect = true;
+        imageOne.type = Image.Type.Simple;
+        imageOne.preserveAspect = true;
     }
     
     public void ChangeImage(Sprite newImage)
