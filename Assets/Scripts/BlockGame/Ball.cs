@@ -27,6 +27,8 @@ public class Ball : MonoBehaviour
 
     public int score;
     public int MaxBlock;
+
+    public bool bossDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,7 @@ public class Ball : MonoBehaviour
         curVec = initVec;
 
         score = 0;
+        bossDamage = false;
     }
 
     // Update is called once per frame
@@ -47,11 +50,29 @@ public class Ball : MonoBehaviour
     {
         if (Vector2.SqrMagnitude(rigid_Ball.velocity) < speed)
         {
-            rigid_Ball.velocity = rigid_Ball.velocity.normalized * speed;
+            rigid_Ball.velocity = curVec.normalized * speed;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)  //  ¾îµò°¡¿¡ ºÎµúÈú½Ã
     {
+        if (collision.collider.CompareTag("Wall"))
+        {
+            if (coll_Ball.IsTouching(upWall)) //  À§ÂÊ º®¿¡ ºÎµúÈû
+            {
+                curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+                rigid_Ball.velocity = curVec;
+            }
+            if (coll_Ball.IsTouching(rightWall) || coll_Ball.IsTouching(leftWall)) //  ¿· º®¿¡ ºÎµúÈû
+            {
+                curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
+                rigid_Ball.velocity = curVec;
+            }
+            if (coll_Ball.IsTouching(downWall)) //  ÇÏ´Ü º®¿¡ ºÎµúÈû
+            {
+                gameOverText.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
         if (coll_Ball.IsTouching(bar.coll_Bar)) //  ¹Ù¿¡ ºÎµúÈû
         {
             curVec += bar.rigid_bar.velocity;
@@ -60,25 +81,11 @@ public class Ball : MonoBehaviour
 
             rigid_Ball.velocity = curVec;
         }
-        if (coll_Ball.IsTouching(upWall)) //  À§ÂÊ º®¿¡ ºÎµúÈû
-        {
-            curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
-            rigid_Ball.velocity = curVec;
-        }
-        if (coll_Ball.IsTouching(rightWall) || coll_Ball.IsTouching(leftWall)) //  ¿· º®¿¡ ºÎµúÈû
-        {
-            curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
-            rigid_Ball.velocity = curVec;
-        }
-        if (coll_Ball.IsTouching(downWall)) //  ÇÏ´Ü º®¿¡ ºÎµúÈû
-        {
-            gameOverText.SetActive(true);
-            Time.timeScale = 0;
-        }
+        
         if (collision.collider.CompareTag("Block"))    //  ºí·Ï¿¡ ºÎµúÈû
         {
 
-            foreach(ContactPoint2D contactHIt in collision.contacts)
+            foreach (ContactPoint2D contactHIt in collision.contacts)
             {
                 Vector2 collPosition = collision.collider.transform.position;
                 Vector2 hitPoint = contactHIt.point;
@@ -110,9 +117,48 @@ public class Ball : MonoBehaviour
 
             if (score == MaxBlock)
             {
+                bossDamage = true;
+            }
+        }
+        if (collision.collider.CompareTag("Boss"))
+        {
+            if (bossDamage)
+            {
+                Destroy(collision.collider.gameObject);
                 gameClearText.SetActive(true);
                 Time.timeScale = 0;
             }
+            else
+            {
+                foreach (ContactPoint2D contactHIt in collision.contacts)
+                {
+                    Vector2 collPosition = collision.collider.transform.position;
+                    Vector2 hitPoint = contactHIt.point;
+                    hitPointY = collPosition.y - hitPoint.y;
+                    hitPointX = collPosition.x - hitPoint.x;
+                    if (hitPointY >= 0.5f)  //  º¸½º ¾Æ·§¸é¿¡ ºÎµúÈû
+                    {
+                        curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+                        rigid_Ball.velocity = curVec;
+                    }
+                    if (hitPointY <= -0.5f)  //  º¸½º À­¸é¿¡ ºÎµúÈû
+                    {
+                        curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
+                        rigid_Ball.velocity = curVec;
+                    }
+                    if (hitPointX >= 0.7f)  //  º¸½º ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
+                    {
+                        curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
+                        rigid_Ball.velocity = curVec;
+                    }
+                    if (hitPointX <= -0.7f)  //  º¸½º ¿ÞÂÊ¸é¿¡ ºÎµúÈû
+                    {
+                        curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
+                        rigid_Ball.velocity = curVec;
+                    }
+                }
+            }
         }
+
     }
 }
