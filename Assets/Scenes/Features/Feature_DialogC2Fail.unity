@@ -287,7 +287,7 @@ MonoBehaviour:
   currSfx: {fileID: 0}
   nextSceneName: 
   retrySceneName: BlockGame
-  titleSceneName: title
+  titleSceneName: TitleScene
   gameOverPanel: {fileID: 1987432}
   gameClearPanel: {fileID: 0}
   sirenClip: {fileID: 0}

@@ -164,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791630080378880170, guid: efc610991449dcd4ea1becfcf0649860, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 2791630080378880170, guid: efc610991449dcd4ea1becfcf0649860, type: 3}
       propertyPath: m_LocalPosition.x
@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791630080378880170, guid: efc610991449dcd4ea1becfcf0649860, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 285.5
       objectReference: {fileID: 0}
     - target: {fileID: 2791630080378880170, guid: efc610991449dcd4ea1becfcf0649860, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -389,9 +389,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b4c4df22ed7a8e45b7c6f465e95240f, type: 2}
   - {fileID: 11400000, guid: cd0ecd9d777937e4c93b3a9ae920d4a1, type: 2}
   currSfx: {fileID: 0}
-  nextSceneName: title
+  nextSceneName: TitleScene
   retrySceneName: 
-  titleSceneName: title
+  titleSceneName: TitleScene
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 1861874154}
   sirenClip: {fileID: 0}

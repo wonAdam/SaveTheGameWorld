@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
   m_Name: Dialog Data 2
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 910d1279ded311c4e94af65e6f293f0b, type: 3}
   characterOneImage: {fileID: 0}
   characterTwoImage: {fileID: 0}
   dialogContent: "\uD750\uB7B4\uC544\uC544\uC544\uC555!!!! "
   dialogCharacterName: 5
   placeName: 
   isAllowToSkipWithTouch: 1
+  sfx: {fileID: 0}

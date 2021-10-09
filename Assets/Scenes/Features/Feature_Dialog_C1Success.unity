@@ -289,7 +289,7 @@ MonoBehaviour:
   currSfx: {fileID: 0}
   nextSceneName: Feature_DialogC2Start
   retrySceneName: 
-  titleSceneName: title
+  titleSceneName: TitleScene
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 1498701294}
   sirenClip: {fileID: 0}

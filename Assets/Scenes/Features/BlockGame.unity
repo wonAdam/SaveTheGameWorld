@@ -1125,7 +1125,7 @@ MonoBehaviour:
   rigid_Ball: {fileID: 0}
   coll_Ball: {fileID: 0}
   velocity_Ball: 5
-  speed: 0
+  speed: 7
   slopeOfBar: 3
   hitPointY: 0
   hitPointX: 0
