@@ -17,8 +17,8 @@ MonoBehaviour:
   characterTwoImage: {fileID: 0}
   dialogContent: "\uC774\uAC70 \uBD10. \uD638\uAC10\uB3C4 \uBC14 \uC548 \uC62C\uB77C\uAC04
     \uAC70. \uD638\uAC10\uB3C4 90\uC744 \uBABB \uB118\uC5C8\uB294\uB370 \uC5B4\uB5BB\uAC8C
-    \uD0A4\uC2A4\uB97C \uD558\uB2C8? <br> <br>\uADF8\uB9AC\uACE0 \uAF43\uB2E4\uBC1C
-    \uC644\uC804 \uAD6C\uB824."
+    \uD0A4\uC2A4\uB97C \uD558\uB2C8? <br>\uADF8\uB9AC\uACE0 \uAF43\uB2E4\uBC1C \uC644\uC804
+    \uAD6C\uB824."
   dialogCharacterName: 7
   placeName: 
   isAllowToSkipWithTouch: 1

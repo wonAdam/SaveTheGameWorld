@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
   m_Name: Dialog_C2Start 1
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: ba081ae8a8ca4c944b9ba6499b88306b, type: 3}
   characterOneImage: {fileID: 0}
   characterTwoImage: {fileID: 0}
   dialogContent: "\uB0A8\uC790\uC8FC\uC778\uACF5\uC774 \uC5EC\uC790\uC8FC\uC778\uACF5
