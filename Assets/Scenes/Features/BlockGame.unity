@@ -1029,7 +1029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 298202496}
   gameOverText: {fileID: 1663691781}
-  gameOverMenu: {fileID: 0}
   gameClearText: {fileID: 294409999}
   bar: {fileID: 882507482}
   rightWall: {fileID: 54360889}
@@ -1042,7 +1041,7 @@ MonoBehaviour:
   curVec: {x: 0, y: 0}
   rigid_Ball: {fileID: 0}
   coll_Ball: {fileID: 0}
-  speed: 0
+  speed: 7
   slopeOfBar: 3
   hitPointY: 0
   hitPointX: 0
@@ -3138,7 +3137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a09fd155de64e40428ed6c7936a541fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd48939741789bc459464eb67610ba8b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
