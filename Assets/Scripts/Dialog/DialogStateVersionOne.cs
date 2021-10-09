@@ -20,10 +20,10 @@ public class DialogStateVersionOne : DialogStateBase
     {
         if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= dialogManager.allowMoveToNextRatio)
         {
-            if(Input.GetMouseButtonDown(0) && dialogManager.dialogDatas[dataIndex].isAllowToSkipWithTouch)
-            {
-                animator.SetTrigger("Next");
-            }
+            //if(Input.GetMouseButtonDown(0) && dialogManager.dialogDatas[dataIndex].isAllowToSkipWithTouch)
+            //{
+            //    animator.SetTrigger("Next");
+            //}
         }
     }
 

@@ -19,12 +19,10 @@ public class Buttons : MonoBehaviour
     public void pauseBtn()
     {
         gameMeue.SetActive(true);
-        Time.timeScale = 0;
     }
     public void resumeBtn()
     {
         gameMeue.SetActive(false);
-        Time.timeScale = 1;
     }
     public void titleBtn()
     {
