@@ -14,17 +14,15 @@ public class DialogSpriteSwapper : MonoBehaviour
     [SerializeField]
     private float swapSeconds;
 
-
     private Image backgroundImage;
+
 
     // Start is called before the first frame update
     void Start()
     {
         backgroundImage = GetComponent<Image>();
-        imageTwo.type = Image.Type.Simple;
-        imageTwo.preserveAspect = true;
-        imageOne.type = Image.Type.Simple;
         imageOne.preserveAspect = true;
+        imageTwo.preserveAspect = true;
     }
     
     public void ChangeImage(Sprite newImage)
@@ -35,12 +33,13 @@ public class DialogSpriteSwapper : MonoBehaviour
 
     public void SwapSprite(Sprite newSprite)
     {
-        if(GetCurrentSprite() == newSprite)
+        StopAllCoroutines();
+
+        if (GetCurrentSprite() == newSprite)
         {
             return;
         }
 
-        StopAllCoroutines();
         if(imageOne.color.a == 0f)
         {
             StartCoroutine(SwapSpriteCoroutine(imageTwo, imageOne, newSprite));
