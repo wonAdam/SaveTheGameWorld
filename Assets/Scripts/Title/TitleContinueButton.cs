@@ -22,9 +22,17 @@ public class TitleContinueButton : MonoBehaviour
 
         // progress > 0
         // interactable
+        else if(playerData.chapterProgress > 0)
+        {  
+            continueButton.interactable = true;
+        }
 
         // else
         // un-interactable
+        else // progress == 0
+        {
+            continueButton.interactable = false;
+        }
 
     }
 
