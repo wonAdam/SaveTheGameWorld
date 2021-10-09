@@ -7,9 +7,7 @@ public class Buttons : MonoBehaviour
 {
     [SerializeField] GameObject gameMeue;
     [SerializeField] GameObject gameOverText;
-    [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject gameClearText;
-    [SerializeField] GameObject gameClearMenu;
     [SerializeField] GameObject gameStartBtn;
     [SerializeField] Ball ball;
     private void Start()
@@ -48,12 +46,7 @@ public class Buttons : MonoBehaviour
     public void gameClear()  //일단 게임 클리어 문구 출력 후 화면 아무데나 클릭하면 다음챕터 혹은 타이틀로 메뉴 띄워두게 해놨음
     {
         Time.timeScale = 1;
-
         SceneManager.LoadScene("Feature_DialogC2Success");
-    }
-    public void nextChapter()
-    {
-        // 다음 챕터로 이동
     }
     public void gameStart()
     {
@@ -62,6 +55,5 @@ public class Buttons : MonoBehaviour
         ball.initVec = (ball.vec_Ball * ball.velocity_Ball).normalized * ball.speed;
         ball.rigid_Ball.velocity = ball.initVec;
         ball.curVec = ball.initVec;
-        Time.timeScale = 1;
     }
 }
