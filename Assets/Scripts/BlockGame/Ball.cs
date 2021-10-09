@@ -134,22 +134,17 @@ public class Ball : MonoBehaviour
                     Vector2 hitPoint = contactHIt.point;
                     hitPointY = collPosition.y - hitPoint.y;
                     hitPointX = collPosition.x - hitPoint.x;
-                    if (hitPointY >= 0.6f)  //  º¸½º ¾Æ·§¸é¿¡ ºÎµúÈû
+                    if (hitPointY >= 0.7f)  //  º¸½º ¾Æ·§¸é¿¡ ºÎµúÈû
                     {
                         curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
                         rigid_Ball.velocity = curVec;
                     }
-                    if (hitPointY <= -0.6f)  //  º¸½º À­¸é¿¡ ºÎµúÈû
-                    {
-                        curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
-                        rigid_Ball.velocity = curVec;
-                    }
-                    if (hitPointX >= 0.7f)  //  º¸½º ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
+                    if (hitPointX >= 0.75f)  //  º¸½º ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
                     {
                         curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
                         rigid_Ball.velocity = curVec;
                     }
-                    if (hitPointX <= -0.7f)  //  º¸½º ¿ÞÂÊ¸é¿¡ ºÎµúÈû
+                    if (hitPointX <= -0.75f)  //  º¸½º ¿ÞÂÊ¸é¿¡ ºÎµúÈû
                     {
                         curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
                         rigid_Ball.velocity = curVec;
