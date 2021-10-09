@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Dialog Manager는 Dialog씬마다 배치합니다.
@@ -17,6 +19,7 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     [SerializeField]
     [Range(0f, 1f)]
     public float allowMoveToNextRatio;
+
 
     [SerializeField]
     public DialogSpriteSwapper backgroundImage;
@@ -53,6 +56,15 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
         characterTwoImage.SwapSprite(dialogDatas[index].characterTwoImage);
         backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
         placeText.ShowPlaceText(dialogDatas[index].placeName);
+
+        if(dialogDatas[index].sfx != null)
+        {
+            var audioSource = new GameObject();
+            audioSource.AddComponent<AudioSource>();
+            audioSource.GetComponent<AudioSource>().PlayOneShot(dialogDatas[index].sfx);
+            Destroy(audioSource, dialogDatas[index].sfx.length);
+
+        }
     }
 
 
@@ -64,6 +76,11 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
         characterOneImage.SwapSprite(dialogDatas[index].characterOneImage);
         characterTwoImage.SwapSprite(dialogDatas[index].characterTwoImage);
         backgroundImage.SwapSprite(dialogDatas[index].backgroundImage);
+    }
+
+    public void EndScene(string nextSceneName)
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 
 }

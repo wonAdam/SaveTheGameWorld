@@ -8,7 +8,8 @@ public enum ChacterNames
     사수,
     갸갸,
     경고음,
-
+    주변_사람들,
+    용사,
 }
 
 [CreateAssetMenu (fileName = "New Dialog Data", menuName = "Dialog Data/New Dialog Data", order = 0)]
@@ -34,4 +35,7 @@ public class DialogData : ScriptableObject
 
     [SerializeField]
     public bool isAllowToSkipWithTouch = true;
+
+    [SerializeField]
+    public AudioClip sfx;
 }

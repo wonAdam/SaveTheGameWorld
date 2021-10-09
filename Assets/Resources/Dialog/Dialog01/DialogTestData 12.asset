@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cf3a44086ea4347837b91f20521f75, type: 3}
+  m_Name: DialogTestData 12
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 0}
+  characterOneImage: {fileID: 21300000, guid: 17e1cc57bcc630a45836833b80ed9c33, type: 3}
+  characterTwoImage: {fileID: 21300000, guid: 45a145949a75e7949912cbf0f89a7e2d, type: 3}
+  dialogContent: "\uBC84\uADF8 \uB85C\uB4DC\uB77C\uBA74\u2026\uADF8 \uC545\uBA85
+    \uB192\uC740\u2026.!"
+  dialogCharacterName: 2
+  placeName: 
+  isAllowToSkipWithTouch: 1
