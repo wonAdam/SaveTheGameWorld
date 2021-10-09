@@ -7,43 +7,52 @@ using System.IO;
 
 public static class SaveManager
 {
-    public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+    private static readonly string path = Path.Combine(Application.persistentDataPath, "SaveData.sav");
 
-    public static void SavePlayer(SavePos player)
+    public static void SavePlayer(PlayerData playerData)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(path + "/PlayerPos.txt", FileMode.Create);
+        FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(player);
+        Debug.Log(path);
 
-        bf.Serialize(stream, data);
+        bf.Serialize(stream, playerData);
         stream.Close();
     }
 
-    public static float LoadPlayer()
+    public static bool SaveDataExists()
     {
+        return File.Exists(path + "/SaveData.sav");
+    }
 
-        if (File.Exists(path + "/PlayerPos.txt"))
+    public static PlayerData LoadPlayer()
+    {
+        if (File.Exists(path))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream stream = new FileStream(path + "/PlayerPos.txt", FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = bf.Deserialize(stream) as PlayerData;
             stream.Close();
 
-            return data.stats;
+            return data;
         }
-        return 0;
+
+        return null;
     }
 }
 
 [Serializable]
 public class PlayerData
 {
-    public float stats = 0;
+    public int chapterProgress = 0;
 
-    public PlayerData(SavePos player)
+    public PlayerData()
     {
-        stats = SavePos.posX;
+    }
+
+    public PlayerData(int progress)
+    {
+        chapterProgress = progress;
     }
 }
