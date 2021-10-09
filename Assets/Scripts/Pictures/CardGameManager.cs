@@ -144,6 +144,9 @@ public class CardGameManager : MonoBehaviour
                 {
                     // 게임 승리 로직
                     GameWinPanel.SetActive(true);
+
+                    SaveManager.SavePlayer(new PlayerData(1));
+
                     isPlaying = false;
                 }
             }

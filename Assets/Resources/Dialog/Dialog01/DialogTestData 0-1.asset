@@ -17,5 +17,6 @@ MonoBehaviour:
   characterTwoImage: {fileID: 0}
   dialogContent: 
   dialogCharacterName: 0
-  placeName: "\uAD00\uB9AC\uAD6D \uC0AC\uBB34\uC2E4"
+  placeName: "\uAD00\uB9AC\uAD6D<br>\uC0AC\uBB34\uC2E4"
   isAllowToSkipWithTouch: 0
+  sfx: {fileID: 0}

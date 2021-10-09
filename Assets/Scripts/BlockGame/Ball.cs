@@ -58,6 +58,7 @@ public class Ball : MonoBehaviour
         if (bossDead)
         {
             animator.SetInteger("bossDead", 1);
+            SaveManager.SavePlayer(new PlayerData(2));
             t_Damaged += Time.deltaTime;
             if (t_Damaged >= 1f)
             {
