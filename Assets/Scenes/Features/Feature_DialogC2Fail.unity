@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3433500538123984327, guid: f5e9e08278de4d64c86373bb812e7249, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e9e08278de4d64c86373bb812e7249, type: 3}
 --- !u!114 &1987432 stripped
@@ -286,6 +290,7 @@ MonoBehaviour:
   titleSceneName: title
   gameOverPanel: {fileID: 1987432}
   gameClearPanel: {fileID: 0}
+  sirenClip: {fileID: 0}
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
@@ -881,7 +886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2873189816084853911, guid: ad84622c8b8a6e54bade0032790079cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 545.539
+      value: 670
       objectReference: {fileID: 0}
     - target: {fileID: 2873189816084853911, guid: ad84622c8b8a6e54bade0032790079cc, type: 3}
       propertyPath: m_LocalPosition.x
