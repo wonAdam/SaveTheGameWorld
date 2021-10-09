@@ -1112,24 +1112,28 @@ MonoBehaviour:
   ball: {fileID: 298202496}
   gameOverText: {fileID: 1663691781}
   gameClearText: {fileID: 294409999}
+  boss: {fileID: 1596414208}
   bar: {fileID: 882507482}
   rightWall: {fileID: 54360889}
   leftWall: {fileID: 227946004}
   upWall: {fileID: 1729281715}
   downWall: {fileID: 1260534039}
-  velocity_Ball: 5
+  animator: {fileID: 1596414212}
   vec_Ball: {x: 0, y: 0}
   initVec: {x: 0, y: 0}
   curVec: {x: 0, y: 0}
   rigid_Ball: {fileID: 0}
   coll_Ball: {fileID: 0}
-  speed: 7
+  velocity_Ball: 5
+  speed: 0
   slopeOfBar: 3
   hitPointY: 0
   hitPointX: 0
+  t_Damaged: 0
   score: 0
   MaxBlock: 15
   bossDamage: 0
+  bossDead: 0
 --- !u!1 &355734776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
@@ -3063,6 +3067,7 @@ GameObject:
   - component: {fileID: 1596414211}
   - component: {fileID: 1596414210}
   - component: {fileID: 1596414209}
+  - component: {fileID: 1596414212}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -3161,6 +3166,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1596414212
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596414208}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b9e7019bd267a94fa91199ffc11b196, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1663691781
 GameObject:
   m_ObjectHideFlags: 0
