@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Buttons : MonoBehaviour
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject gameClearText;
     [SerializeField] GameObject gameClearMenu;
+    [SerializeField] GameObject gameStartBtn;
+    [SerializeField] Ball ball;
     private void Start()
     {
         gameMeue.SetActive(false);
@@ -51,5 +54,13 @@ public class Buttons : MonoBehaviour
     public void nextChapter()
     {
         // 다음 챕터로 이동
+    }
+    public void gameStart()
+    {
+        Destroy(gameStartBtn);
+        ball.vec_Ball = Vector2.down;
+        ball.initVec = (ball.vec_Ball * ball.velocity_Ball).normalized * ball.speed;
+        ball.rigid_Ball.velocity = ball.initVec;
+        ball.curVec = ball.initVec;
     }
 }

@@ -36,10 +36,8 @@ public class Ball : MonoBehaviour
         gameOverMenu.SetActive(false);
         rigid_Ball = ball.GetComponent<Rigidbody2D>();
         coll_Ball = ball.GetComponent<CircleCollider2D>();
-        vec_Ball = Vector2.down;
-        initVec = (vec_Ball * velocity_Ball).normalized * speed;
-        rigid_Ball.velocity = initVec;
-        curVec = initVec;
+
+
 
         score = 0;
         bossDamage = false;
@@ -91,22 +89,22 @@ public class Ball : MonoBehaviour
                 Vector2 hitPoint = contactHIt.point;
                 hitPointY = collPosition.y - hitPoint.y;
                 hitPointX = collPosition.x - hitPoint.x;
-                if (hitPointY >= 0.45f)  //  ºí·Ï ¾Æ·§¸é¿¡ ºÎµúÈû
+                if (hitPointY >= 0.2f)  //  ºí·Ï ¾Æ·§¸é¿¡ ºÎµúÈû
                 {
                     curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
                     rigid_Ball.velocity = curVec;
                 }
-                if (hitPointY <= -0.45f)  //  ºí·Ï À­¸é¿¡ ºÎµúÈû
+                if (hitPointY <= -0.2f)  //  ºí·Ï À­¸é¿¡ ºÎµúÈû
                 {
                     curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
                     rigid_Ball.velocity = curVec;
                 }
-                if (hitPointX >= 1f)  //  ºí·Ï ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
+                if (hitPointX >= 0.5f)  //  ºí·Ï ¿À¸¥ÂÊ¸é¿¡ ºÎµúÈû
                 {
                     curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
                     rigid_Ball.velocity = curVec;
                 }
-                if (hitPointX <= -1f)  //  ºí·Ï ¿ÞÂÊ¸é¿¡ ºÎµúÈû
+                if (hitPointX <= -0.5f)  //  ºí·Ï ¿ÞÂÊ¸é¿¡ ºÎµúÈû
                 {
                     curVec = new Vector2(-curVec.x, curVec.y).normalized * speed;
                     rigid_Ball.velocity = curVec;
@@ -136,12 +134,12 @@ public class Ball : MonoBehaviour
                     Vector2 hitPoint = contactHIt.point;
                     hitPointY = collPosition.y - hitPoint.y;
                     hitPointX = collPosition.x - hitPoint.x;
-                    if (hitPointY >= 0.5f)  //  º¸½º ¾Æ·§¸é¿¡ ºÎµúÈû
+                    if (hitPointY >= 0.6f)  //  º¸½º ¾Æ·§¸é¿¡ ºÎµúÈû
                     {
                         curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
                         rigid_Ball.velocity = curVec;
                     }
-                    if (hitPointY <= -0.5f)  //  º¸½º À­¸é¿¡ ºÎµúÈû
+                    if (hitPointY <= -0.6f)  //  º¸½º À­¸é¿¡ ºÎµúÈû
                     {
                         curVec = new Vector2(curVec.x, -curVec.y).normalized * speed;
                         rigid_Ball.velocity = curVec;
