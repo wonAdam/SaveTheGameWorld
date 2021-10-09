@@ -48,6 +48,33 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     [SerializeField]
     public string nextSceneName;
 
+    [SerializeField]
+    public string retrySceneName;
+
+    [SerializeField]
+    public string titleSceneName;
+
+    [SerializeField]
+    public DialogGameOverPanel gameOverPanel;
+
+    [SerializeField]
+    public DialogGameClearPanel gameClearPanel;
+
+    [SerializeField]
+    private AudioClip sirenClip;
+
+    public void PlaySirenAudioClip()
+    {
+        if (currSfx != null)
+            Destroy(currSfx.gameObject);
+
+        var audioSource = new GameObject();
+        currSfx = audioSource.AddComponent<AudioSource>();
+        audioSource.GetComponent<AudioSource>().volume = 0.5f;
+        audioSource.GetComponent<AudioSource>().PlayOneShot(sirenClip);
+        Destroy(audioSource, sirenClip.length);
+    }
+
 
     protected override void Awake()
     {
@@ -96,6 +123,22 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     public void EndScene()
     {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void ShowGameOverPanel()
+    {
+        gameOverPanel.SetPanel(
+            () => SceneManager.LoadScene(retrySceneName),
+            () => SceneManager.LoadScene(titleSceneName)
+        );
+    }
+
+    public void ShowGameClearPanel()
+    {
+        gameClearPanel.SetPanel(
+            () => SceneManager.LoadScene(nextSceneName),
+            () => SceneManager.LoadScene(titleSceneName)
+        );
     }
 
 }
