@@ -19,3 +19,4 @@ MonoBehaviour:
   dialogCharacterName: 3
   placeName: 
   isAllowToSkipWithTouch: 1
+  sfx: {fileID: 8300000, guid: a702fa6377f3f5e46864277c06fe9c1d, type: 3}
