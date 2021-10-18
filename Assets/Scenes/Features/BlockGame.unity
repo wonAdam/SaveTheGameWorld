@@ -1119,6 +1119,7 @@ MonoBehaviour:
   upWall: {fileID: 1729281715}
   downWall: {fileID: 1260534039}
   animator: {fileID: 1596414212}
+  blockClip: {fileID: 8300000, guid: b02eff3d97e37104ca3b32c71e27c051, type: 3}
   vec_Ball: {x: 0, y: 0}
   initVec: {x: 0, y: 0}
   curVec: {x: 0, y: 0}

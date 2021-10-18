@@ -16,6 +16,9 @@ public class Ball : MonoBehaviour
     [SerializeField] Animator animator;
 
 
+    [SerializeField]
+    private AudioClip blockClip;
+
     public Vector2 vec_Ball;
     public Vector2 initVec;
     public Vector2 curVec;
@@ -131,6 +134,13 @@ public class Ball : MonoBehaviour
             }
             score++;
             Destroy(collision.collider.gameObject);
+
+            var audioSource = new GameObject();
+            audioSource.AddComponent<AudioSource>();
+            audioSource.GetComponent<AudioSource>().volume = 0.7f;
+            var clip = SoundDB.GetAudioClip(SoundEnum.Block);
+            audioSource.GetComponent<AudioSource>().PlayOneShot(clip);
+            Destroy(audioSource, clip.length);
 
             if (score == MaxBlock)
             {

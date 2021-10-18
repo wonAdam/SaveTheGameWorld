@@ -81,7 +81,8 @@ public class Card : MonoBehaviour
 
     public void PlayFlipSound()
     {
-        audioSource.PlayOneShot(flipSound);
+        var clip = SoundDB.GetAudioClip(SoundEnum.Card);
+        audioSource.PlayOneShot(clip);
     }
 
     public void OnBeginOfCardAction()

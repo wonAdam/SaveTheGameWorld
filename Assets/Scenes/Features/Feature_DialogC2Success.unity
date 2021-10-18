@@ -284,6 +284,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 1861874154}
   sirenClip: {fileID: 0}
+  kissClip: {fileID: 8300000, guid: 1cd017fc9b3b7634094d0e3f8209d4dc, type: 3}
+  screenSizeDebug: {fileID: 0}
 --- !u!95 &140622882
 Animator:
   serializedVersion: 3
@@ -893,9 +895,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 140622886}
     m_Modifications:
+    - target: {fileID: 5609456644785057211, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5609456645887102812, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_Name
       value: GameClearMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609456645887102812, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5609456645887102815, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_Pivot.x
@@ -980,6 +990,10 @@ PrefabInstance:
     - target: {fileID: 5609456645887102815, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609456646094058410, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a4ea16bd9a402546b224074085119e0, type: 3}

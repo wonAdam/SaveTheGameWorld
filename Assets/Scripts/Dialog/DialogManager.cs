@@ -79,6 +79,9 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     private AudioClip sirenClip;
 
     [SerializeField]
+    private AudioClip kissClip;
+
+    [SerializeField]
     public Text screenSizeDebug;
 
     public void PlaySirenAudioClip()
@@ -88,9 +91,10 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
 
         var audioSource = new GameObject();
         currSfx = audioSource.AddComponent<AudioSource>();
-        audioSource.GetComponent<AudioSource>().volume = 0.5f;
-        audioSource.GetComponent<AudioSource>().PlayOneShot(sirenClip);
-        Destroy(audioSource, sirenClip.length);
+        audioSource.GetComponent<AudioSource>().volume = 0.7f;
+        var clip = SoundDB.GetAudioClip(SoundEnum.Siren);
+        audioSource.GetComponent<AudioSource>().PlayOneShot(clip);
+        Destroy(audioSource, clip.length);
 
     }
 
@@ -239,6 +243,19 @@ public class DialogManager : SimpleSingletonBehaviour<DialogManager>
     public void EndScene()
     {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void PlayKissSound()
+    {
+        if (currSfx != null)
+            Destroy(currSfx.gameObject);
+
+        var audioSource = new GameObject();
+        audioSource.AddComponent<AudioSource>();
+        audioSource.GetComponent<AudioSource>().volume = 0.7f;
+        var clip = SoundDB.GetAudioClip(SoundEnum.Kiss);
+        audioSource.GetComponent<AudioSource>().PlayOneShot(clip);
+        Destroy(audioSource, clip.length);
     }
 
     public void ShowGameOverPanel()

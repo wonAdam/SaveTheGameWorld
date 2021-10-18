@@ -41,10 +41,40 @@ public class DialogSpriteSwapper : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (GetCurrentSprite() == newSprite || newSprite == null)
+        if (newSprite != null && GetCurrentSprite() == newSprite)
         {
+            if (one)
+            {
+                imageTwo.color = new Color(1f, 1f, 1f, 1f);
+                imageOne.color = new Color(1f, 1f, 1f, 0f);
+            }
+            else
+            {
+                imageOne.color = new Color(1f, 1f, 1f, 1f);
+                imageTwo.color = new Color(1f, 1f, 1f, 0f);
+            }
+
             return;
         }
+
+        if (newSprite == null && GetCurrentSprite() == null)
+        {
+            if (one)
+            {
+                imageTwo.color = new Color(1f, 1f, 1f, 0f);
+                imageOne.color = new Color(1f, 1f, 1f, 0f);
+            }
+            else
+            {
+                imageOne.color = new Color(1f, 1f, 1f, 0f);
+                imageTwo.color = new Color(1f, 1f, 1f, 0f);
+            }
+
+            return;
+        }
+
+        if (newSprite == null)
+            return;
 
         if(one)
         {

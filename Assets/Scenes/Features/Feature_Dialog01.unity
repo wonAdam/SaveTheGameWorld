@@ -325,6 +325,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 0}
   sirenClip: {fileID: 0}
+  kissClip: {fileID: 0}
   screenSizeDebug: {fileID: 915481950}
 --- !u!95 &140622882
 Animator:

@@ -13,3 +13,12 @@ public class ScreenFixedResolution : MonoBehaviour
         FindObjectsOfType<Canvas>().ToList().ForEach(canvas => canvas.worldCamera = Camera.main);
     }
 }
+
+public class SoundStatics
+{
+    public static void PlaySoundOneShot(SoundEnum soundType)
+    {
+
+    }
+
+}

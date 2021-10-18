@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66004b0ed0f755f4b819bba288f79dea, type: 3}
+  m_Name: AudioDB
+  m_EditorClassIdentifier: 
+  buttonClip: {fileID: 8300000, guid: 16f31280f4199b04195ee073bbf8027a, type: 3}
+  blockClip: {fileID: 8300000, guid: b02eff3d97e37104ca3b32c71e27c051, type: 3}
+  cardClip: {fileID: 8300000, guid: 5affabea9d309ae44a28478c81e7500b, type: 3}
+  kissClip: {fileID: 8300000, guid: 1cd017fc9b3b7634094d0e3f8209d4dc, type: 3}
+  sirenClip: {fileID: 8300000, guid: a702fa6377f3f5e46864277c06fe9c1d, type: 3}
+  smashClip: {fileID: 8300000, guid: 93e4dbf0f7d846d478a32ea34df89e9c, type: 3}
+  swordClip: {fileID: 8300000, guid: c59efcf5262c32c4faef8038715c4338, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 6f7b86abf0b309f44b79adca0145d065, type: 3}
+  gameClearClip: {fileID: 8300000, guid: 7e3066344101e1e4eb689cd4c8e61172, type: 3}

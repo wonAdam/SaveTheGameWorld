@@ -179,6 +179,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 380947156}
   gameClearPanel: {fileID: 0}
   sirenClip: {fileID: 0}
+  kissClip: {fileID: 0}
   screenSizeDebug: {fileID: 0}
 --- !u!95 &140622882
 Animator:
@@ -707,6 +708,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4595161346514074525, guid: c9231badceed59d4dba93768f2925b82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 411023635}
+    - target: {fileID: 4595161346514074525, guid: c9231badceed59d4dba93768f2925b82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 4595161346514074527, guid: c9231badceed59d4dba93768f2925b82, type: 3}
       propertyPath: m_Name
       value: PauseButton
@@ -819,6 +828,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
+--- !u!1 &411023635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2773879996480733761, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
+  m_PrefabInstance: {fileID: 411023634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &411023636 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2773879996480733762, guid: d0fa10db22455724fa6cc54249a25a57, type: 3}
