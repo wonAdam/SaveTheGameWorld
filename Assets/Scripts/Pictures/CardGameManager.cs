@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,7 +22,7 @@ public class CardGameManager : MonoBehaviour
     [SerializeField]
     private GameObject GameWinPanel;
 
-    //ÀüÃ¼ Á¦ÇÑ ½Ã°£ 
+    //Ã€Ã¼ÃƒÂ¼ ÃÂ¦Ã‡Ã‘ Â½ÃƒÂ°Â£ 
     [SerializeField]
     private float setTime = 60f;
     
@@ -37,7 +37,7 @@ public class CardGameManager : MonoBehaviour
 
     void Start()
     {
-        gameTimeUI.text = "³²Àº ½Ã°£ : " + (int)setTime + "ÃÊ";
+        gameTimeUI.text = "ë‚¨ì€ ì‹œê°„ : " + (int)setTime + "ì´ˆ";
 
         GameStartPanel.SetActive(true);
 
@@ -49,22 +49,22 @@ public class CardGameManager : MonoBehaviour
     {
         if(isPlaying)
         {
-            //³²Àº ½Ã°£À» °¨¼Ò½ÃÄÑÁØ´Ù.
+            //Â³Â²Ã€Âº Â½ÃƒÂ°Â£Ã€Â» Â°Â¨Â¼Ã’Â½ÃƒÃ„Ã‘ÃÃ˜Â´Ã™.
             setTime -= Time.deltaTime;
 
-            // ÀüÃ¼½Ã°£ÀÌ 60ÃÊ ¹Ì¸¸ÀÏ ¶§
+            // Ã€Ã¼ÃƒÂ¼Â½ÃƒÂ°Â£Ã€ÃŒ 60ÃƒÃŠ Â¹ÃŒÂ¸Â¸Ã€Ã Â¶Â§
             if (setTime < 60f)
             {
-                gameTimeUI.text = "³²Àº ½Ã°£ : " + (int)setTime + "ÃÊ";
+                gameTimeUI.text = "ë‚¨ì€ ì‹œê°„ : " + (int)setTime + "ì´ˆ";
             }
 
-            // ³²Àº ½Ã°£ÀÌ 0º¸´Ù ÀÛ¾ÆÁú ¶§
+            // Â³Â²Ã€Âº Â½ÃƒÂ°Â£Ã€ÃŒ 0ÂºÂ¸Â´Ã™ Ã€Ã›Â¾Ã†ÃÃº Â¶Â§
             if (setTime <= 0)
             {
-                // UI ÅØ½ºÆ®¸¦ 0ÃÊ·Î °íÁ¤½ÃÅ´.
-                gameTimeUI.text = "³²Àº ½Ã°£ : 0ÃÊ";
+                // UI Ã…Ã˜Â½ÂºÃ†Â®Â¸Â¦ 0ÃƒÃŠÂ·Ã Â°Ã­ÃÂ¤Â½ÃƒÃ…Â´.
+                gameTimeUI.text = "ë‚¨ì€ ì‹œê°„ : 0ì´ˆ";
 
-                // °ÔÀÓ ¿À¹ö ·ÎÁ÷
+                // Â°Ã”Ã€Ã“ Â¿Ã€Â¹Ã¶ Â·ÃÃÃ·
                 StartCoroutine(GameOverAfterSeconds(1f, 0.5f));
             }
 
@@ -73,19 +73,19 @@ public class CardGameManager : MonoBehaviour
 
     private IEnumerator GameOverAfterSeconds(float secondsBeforePanel, float secondsBeforeSceneLoad)
     {
-        // flipÀ» ¸·°í
+        // flipÃ€Â» Â¸Â·Â°Ã­
         FindObjectsOfType<Card>().ToList().ForEach(card => card.flipLocked = true);
 
-        // seconds¸¸Å­ ¸ØÃß°í
+        // secondsÂ¸Â¸Ã…Â­ Â¸Ã˜ÃƒÃŸÂ°Ã­
         yield return new WaitForSeconds(secondsBeforePanel);
 
-        // °ÔÀÓ¿À¹ö ÆĞ³ÎÀ» º¸¿©ÁÜ
+        // Â°Ã”Ã€Ã“Â¿Ã€Â¹Ã¶ Ã†ÃÂ³ÃÃ€Â» ÂºÂ¸Â¿Â©ÃÃœ
         GameOver.SetActive(true);
     }
 
 
 
-    //½ºÅ×ÀÌÁö ¸¸µé±â
+    //Â½ÂºÃ…Ã—Ã€ÃŒÃÃ¶ Â¸Â¸ÂµÃ©Â±Ã¢
     public void MakeStage()
     {
         Shuffling();
@@ -98,7 +98,7 @@ public class CardGameManager : MonoBehaviour
     }
 
 
-    //Ä«µå ¼¯±â
+    //Ã„Â«ÂµÃ¥ Â¼Â¯Â±Ã¢
     public void Shuffling()
     {
         for (int i = 0; i < cardSprites.Length; ++i)
@@ -113,7 +113,7 @@ public class CardGameManager : MonoBehaviour
 
     private bool CheckIfAllCardFlipped()
     {
-        // ¸ğµç Ä«µå°¡ flipLockedÀÌ¸é ÀüºÎ ¸Â°Ô µÚÁıÀº°ÍÀÌ´Ù.
+        // Â¸Ã°ÂµÃ§ Ã„Â«ÂµÃ¥Â°Â¡ flipLockedÃ€ÃŒÂ¸Ã© Ã€Ã¼ÂºÃ Â¸Ã‚Â°Ã” ÂµÃšÃÃ½Ã€ÂºÂ°ÃÃ€ÃŒÂ´Ã™.
         foreach(var card in cards)
         {
             if(!card.flipLocked)
@@ -125,13 +125,13 @@ public class CardGameManager : MonoBehaviour
 
     [HideInInspector]
     private Card cardOnFrontFace = null;
-    //Á¤´ä È®ÀÎ
+    //ÃÂ¤Â´Ã¤ ÃˆÂ®Ã€Ã
     public void CheckIfSameCardFlipped(Card cardFlipped)
     {
-        // ÀÌÀü¿¡ µÚÁıÀº Ä«µå°¡ ÀÖ°í
+        // Ã€ÃŒÃ€Ã¼Â¿Â¡ ÂµÃšÃÃ½Ã€Âº Ã„Â«ÂµÃ¥Â°Â¡ Ã€Ã–Â°Ã­
         if(cardOnFrontFace != null)
         {
-            // ¹æ±İ µÚÁıÀº Ä«µå¿Í ÀÌÀü¿¡ µÚÁıÀº Ä«µå°¡ °°Àº Ä«µå¶ó¸é
+            // Â¹Ã¦Â±Ã ÂµÃšÃÃ½Ã€Âº Ã„Â«ÂµÃ¥Â¿Ã Ã€ÃŒÃ€Ã¼Â¿Â¡ ÂµÃšÃÃ½Ã€Âº Ã„Â«ÂµÃ¥Â°Â¡ Â°Â°Ã€Âº Ã„Â«ÂµÃ¥Â¶Ã³Â¸Ã©
             if(Card.IsSameCards(cardFlipped, cardOnFrontFace))
             {
                 cardFlipped.flipLocked = true;
@@ -142,7 +142,7 @@ public class CardGameManager : MonoBehaviour
 
                 if(CheckIfAllCardFlipped())
                 {
-                    // °ÔÀÓ ½Â¸® ·ÎÁ÷
+                    // Â°Ã”Ã€Ã“ Â½Ã‚Â¸Â® Â·ÃÃÃ·
                     GameWinPanel.SetActive(true);
 
                     SaveManager.SavePlayer(new PlayerData(1));
@@ -152,14 +152,14 @@ public class CardGameManager : MonoBehaviour
             }
             else
             {
-                // °°Àº Ä«µå°¡ ¾Æ´Ï´Ï
-                // µÑ´Ù µÚÁı°í
-                // ÀÌÀü¿¡ µÚÁıÀº Ä«µå¸¦ null·Î 
+                // Â°Â°Ã€Âº Ã„Â«ÂµÃ¥Â°Â¡ Â¾Ã†Â´ÃÂ´Ã
+                // ÂµÃ‘Â´Ã™ ÂµÃšÃÃ½Â°Ã­
+                // Ã€ÃŒÃ€Ã¼Â¿Â¡ ÂµÃšÃÃ½Ã€Âº Ã„Â«ÂµÃ¥Â¸Â¦ nullÂ·Ã 
                 notTheSameCard = true;
                 cardOnFrontFace = null;
             }
         }
-        // ÀÌÀü¿¡ µÚÁıÀº Ä«µå°¡ ¾ø´Ù¸é
+        // Ã€ÃŒÃ€Ã¼Â¿Â¡ ÂµÃšÃÃ½Ã€Âº Ã„Â«ÂµÃ¥Â°Â¡ Â¾Ã¸Â´Ã™Â¸Ã©
         else
         {
             cardOnFrontFace = cardFlipped;
@@ -167,10 +167,10 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    //µµÀü ½ÇÆĞ
+    //ÂµÂµÃ€Ã¼ Â½Ã‡Ã†Ã
     public void DestroyStage()
     {
-        //for (int i = 1; i <= 12; i++) //³²Àº Ä«µå ¾Õ¸é Ç¥½Ã
+        //for (int i = 1; i <= 12; i++) //Â³Â²Ã€Âº Ã„Â«ÂµÃ¥ Â¾Ã•Â¸Ã© Ã‡Â¥Â½Ãƒ
         //{
         //    if (arrHit[i] == 1)
         //    {
@@ -183,7 +183,7 @@ public class CardGameManager : MonoBehaviour
 
         //GameOver.text = "You Failed";
 
-        ////°ÔÀÓ Ã³À½À¸·Î ÀÌµ¿
+        ////Â°Ã”Ã€Ã“ ÃƒÂ³Ã€Â½Ã€Â¸Â·Ã Ã€ÃŒÂµÂ¿
         //SceneManager.LoadScene("GameTitle");
 
     }

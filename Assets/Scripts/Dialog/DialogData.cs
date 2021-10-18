@@ -1,22 +1,35 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ChacterNames
+public enum CharacterNames
 {
-    ³ª·¡ÀÌ¼Ç,
-    »ç¼ö,
-    °¼°¼,
-    °æ°íÀ½,
-    ÁÖº¯_»ç¶÷µé,
-    ¿ë»ç,
-    ³²ÀÚÁÖÀÎ°ø,
-    ¿©ÀÚÁÖÀÎ°ø,
+    Narration,
+    Sasu,
+    GyaGya,
+    AlertSound,
+    Neighbors,
+    Hero,
+    FemaleCharacter,
+    MaleCharacter,
 }
 
 [CreateAssetMenu (fileName = "New Dialog Data", menuName = "Dialog Data/New Dialog Data", order = 0)]
 public class DialogData : ScriptableObject
 {
+    public static Dictionary<CharacterNames, string> characterNameMap
+        = new Dictionary<CharacterNames, string>()
+    {
+        { CharacterNames.Narration, "ë‚˜ë ˆì´ì…˜" },
+        { CharacterNames.GyaGya, "ê°¸ê°¸" },
+        { CharacterNames.Sasu, "ì‚¬ìˆ˜" },
+        { CharacterNames.Hero, "ìš©ì‚¬" },
+        { CharacterNames.Neighbors, "ì£¼ë³€ ì‚¬ëŒë“¤" },
+        { CharacterNames.AlertSound, "ê²½ê³ ìŒ" },
+        { CharacterNames.FemaleCharacter, "ì—¬ìì£¼ì¸ê³µ" },
+        { CharacterNames.MaleCharacter, "ë‚¨ìì£¼ì¸ê³µ" },
+    };
+
     [SerializeField]
     public Sprite backgroundImage;
 
@@ -30,7 +43,7 @@ public class DialogData : ScriptableObject
     public string dialogContent;
 
     [SerializeField]
-    public ChacterNames dialogCharacterName;
+    public CharacterNames dialogCharacterName;
 
     [SerializeField]
     public string placeName;

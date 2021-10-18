@@ -2,23 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
-public class LookLevel : MonoBehaviour
+public class ScreenFixedResolution : MonoBehaviour
 {
-
-
-    //public void save()
-    //{
-    //    float xx = transform.position.x;
-    //}
-
-    //public void load()
-    //{
-    //    float loadedStats = SaveManager.LoadPlayer();
-
-    //    //if¹®
-  
-    //}
-
-
+    public static void SetFixedResolution()
+    {
+        Screen.SetResolution(1080, 1920, true);
+        FindObjectsOfType<Canvas>().ToList().ForEach(canvas => canvas.renderMode = RenderMode.ScreenSpaceCamera);
+        FindObjectsOfType<Canvas>().ToList().ForEach(canvas => canvas.worldCamera = Camera.main);
+    }
 }
